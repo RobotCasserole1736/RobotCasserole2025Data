@@ -1,0 +1,208 @@
+[2024-10-24 17:38:39] [General - Main] [INFO] Starting PhotonVision version v2025.1.1 on platform Linux AARCH 64-bit with RK3588
+[2024-10-24 17:38:39] [General - Main] [INFO] PhotonVision image version: v2025.0.3;opi5
+[2024-10-24 17:38:42] [General - Main] [INFO] WPI JNI libraries loaded.
+[2024-10-24 17:38:42] [General - Main] [INFO] photon-targeting JNI libraries loaded.
+[2024-10-24 17:38:42] [Camera - RknnDetectorJNI] [INFO] Successfully loaded shared object librga.so
+[2024-10-24 17:38:43] [Camera - RknnDetectorJNI] [INFO] Successfully loaded shared object librknnrt.so
+[2024-10-24 17:38:43] [Camera - RknnDetectorJNI] [INFO] Successfully loaded shared object librknn_jni.so
+[2024-10-24 17:38:43] [Camera - RknnDetectorJNI] [INFO] Successfully loaded shared object libmrcal_jni.so
+[2024-10-24 17:38:43] [General - Main] [INFO] Logging initialized in debug mode.
+[2024-10-24 17:38:43] [General - Main] [DEBUG] Loading ConfigManager...
+[2024-10-24 17:38:43] [Config - SqlConfigProvider] [DEBUG] Using database /opt/photonvision/photonvision_config/photon.sqlite
+[2024-10-24 17:38:43] [Config - SqlConfigProvider] [INFO] Using correct database version: 2
+[2024-10-24 17:38:43] [Config - SqlConfigProvider] [DEBUG] Loading config...
+[2024-10-24 17:38:43] [Config - SqlConfigProvider] [ERROR] Could not deserialize apriltag layout! Loading defaults: Provided empty string for class edu.wpi.first.apriltag.AprilTagFieldLayout
+[2024-10-24 17:38:43] [Config - SqlConfigProvider] [ERROR] org.eclipse.jetty.io.EofException: Provided empty string for class edu.wpi.first.apriltag.AprilTagFieldLayout
+	at org.photonvision.common.util.file.JacksonUtils.deserialize(JacksonUtils.java:81)
+	at org.photonvision.common.configuration.SqlConfigProvider.load(SqlConfigProvider.java:296)
+	at org.photonvision.common.configuration.ConfigManager.load(ConfigManager.java:192)
+	at org.photonvision.Main.main(Main.java:267)
+
+[2024-10-24 17:38:44] [General - KernelLogLogger] [DEBUG] 2024-10-24T17:38:44.099497+00:00 photonvision kernel: platform mtd_vendor_storage: deferred probe pending
+[2024-10-24 17:38:44] [General - Main] [INFO] Loading ML models...
+[2024-10-24 17:38:44] [Config - NeuralNetworkModelManager] [INFO] Skipping extraction of DNN resource: models/note-640-640-yolov5s.rknn
+[2024-10-24 17:38:44] [Config - NeuralNetworkModelManager] [INFO] Skipping extraction of DNN resource: models/note-640-640-yolov5s-labels.txt
+[2024-10-24 17:38:44] [Config - NeuralNetworkModelManager] [INFO] Supported backends: [RKNN]
+[2024-10-24 17:38:44] [Config - NeuralNetworkModelManager] [INFO] Loaded model note-640-640-yolov5s.rknn for backend RKNN
+[2024-10-24 17:38:44] [General - Main] [DEBUG] Loading HardwareManager...
+[2024-10-24 17:38:44] [NetworkTables - TimeSyncManager] [DEBUG] Starting TimeSyncClient on localhost (for now)
+[2024-10-24 17:38:44] [General - Main] [DEBUG] Loading NetworkManager...
+[2024-10-24 17:38:44] [General - ShellExec] [DEBUG] Executing "id -u"
+[2024-10-24 17:38:44] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-24 17:38:44] [General - ShellExec] [DEBUG] Executing "nmcli -t -f GENERAL.CONNECTION,GENERAL.DEVICE,GENERAL.TYPE device show"
+[2024-10-24 17:38:44] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-24 17:38:44] [General - NetworkUtils] [DEBUG] Found network interfaces: [NMDeviceInfo [connName=static-end1, devName=end1, nmType=NMTYPE_ETHERNET]]
+[2024-10-24 17:38:44] [General - NetworkManager] [DEBUG] Watching network interface at path: /sys/class/net/end1/carrier
+[2024-10-24 17:38:44] [General - NetworkManager] [INFO] Setting STATIC with team 1736 on end1
+[2024-10-24 17:38:44] [General - NetworkManager] [INFO] Interface end1 has address(es): [/10.17.36.15/8 [/10.255.255.255]]
+[2024-10-24 17:38:44] [General - ShellExec] [DEBUG] Executing "cat /etc/hostname | tr -d " \t\n\r""
+[2024-10-24 17:38:44] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-24 17:38:44] [General - NetworkManager] [DEBUG] Old host name: "photonvision"
+[2024-10-24 17:38:44] [General - NetworkManager] [DEBUG] New host name: "photonvision"
+[2024-10-24 17:38:44] [General - NetworkManager] [INFO] Updating the Static connection static-end1
+[2024-10-24 17:38:44] [General - ShellExec] [DEBUG] Executing "nmcli connection modify static-end1 autoconnect yes ipv4.method manual ipv6.method disabled ipv4.addresses 10.17.36.15/8 ipv4.gateway 10.17.36.1 "
+[2024-10-24 17:38:45] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-24 17:38:45] [General - NetworkManager] [INFO] Activating the Static connection static-end1
+[2024-10-24 17:38:45] [General - ShellExec] [DEBUG] Executing "nmcli connection up "static-end1""
+[2024-10-24 17:38:45] [Config - ConfigManager] [DEBUG] Saving to disk...
+[2024-10-24 17:38:45] [Config - SqlConfigProvider] [DEBUG] Saving to disk
+[2024-10-24 17:38:46] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-24 17:38:46] [General - Main] [DEBUG] Loading NetworkTablesManager...
+[2024-10-24 17:38:46] [NetworkTables - NetworkTablesManager] [INFO] Starting NT Client, server team is 1736
+[2024-10-24 17:38:46] [NetworkTables - NetworkTablesManager] [INFO] NT: INFO 20: starting network client (NetworkClient.cpp:46)
+[2024-10-24 17:38:46] [General - Main] [DEBUG] Loading VisionSourceManager...
+[2024-10-24 17:38:46] [NetworkTables - NetworkTablesManager] [INFO] Starting NT Client, server team is 1736
+[2024-10-24 17:38:46] [NetworkTables - NetworkTablesManager] [ERROR] [NetworkTablesManager] Could not connect to the robot! Will retry in the background...
+[2024-10-24 17:38:46] [Camera - VisionSourceManager] [INFO] Registering loaded camera configs
+[2024-10-24 17:38:46] [Camera - VisionSourceManager] [DEBUG] Creating VisionSource for CameraConfiguration [uniqueName=3b4a42f3-57f7-49b3-a4c5-266a62aada95, matchedCameraInfo=PVUsbCameraInfo[type=UsbCamera, dev=0, path='/dev/video0', name='ACAM4', otherPaths=[/dev/v4l/by-id/usb-Arducam_Technology_Co.__Ltd._ACAM4_1736.4-video-index0, /dev/v4l/by-path/platform-fc880000.usb-usbv2-0:1:1.0-video-index0, /dev/v4l/by-path/platform-fc880000.usb-usb-0:1:1.0-video-index0], vid=3141, pid=25446, uniquePath='/dev/v4l/by-path/platform-fc880000.usb-usb-0:1:1.0-video-index0'], nickname=ACAM2, deactivated=false, cameraQuirks=QuirkyCamera [baseName=ACAM4, displayName=, usbVid=3141, usbPid=25446, quirks={FPSCap100=false, AdjustableFocus=false, AwbRedBlueGain=false, InnoOV9281Controls=false, PsEyeControls=false, ArduOV2311Controls=false, LifeCamControls=false, ArduOV9281Controls=false, CompletelyBroken=false, See3Cam_24CUG=false, StickyFPS=true, Gain=true, ArduCamCamera=true, ArduOV9782Controls=true, ArduOV9782=false}], FOV=70.0]
+[2024-10-24 17:38:46] [Camera - USBCameraSource - ACAM2] [INFO] Quirky camera detected: QuirkyCamera [baseName=ACAM4, displayName=, usbVid=3141, usbPid=25446, quirks={FPSCap100=false, AdjustableFocus=false, AwbRedBlueGain=false, InnoOV9281Controls=false, PsEyeControls=false, ArduOV2311Controls=false, LifeCamControls=false, ArduOV9281Controls=false, CompletelyBroken=false, See3Cam_24CUG=false, StickyFPS=true, Gain=true, ArduCamCamera=true, ArduOV9782Controls=true, ArduOV9782=false}]
+[2024-10-24 17:38:46] [CSCore - PvCSCoreLogger] [INFO] ACAM2: Attempting to connect to USB camera on /dev/v4l/by-path/platform-fc880000.usb-usb-0:1:1.0-video-index0
+[2024-10-24 17:38:46] [Camera - USBCameraSource - ACAM2] [DEBUG] Using Arducam OV9782 Settables
+[2024-10-24 17:38:46] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: opening device (UsbCameraImpl.cpp:651)
+[2024-10-24 17:38:46] [Camera - USBCameraSource - ACAM2] [INFO] Created settables org.photonvision.vision.camera.USBCameras.ArduOV9782CameraSettables@51891008
+[2024-10-24 17:38:46] [CSCore - PvCSCoreLogger] [INFO] ACAM2: Connected to USB camera on /dev/v4l/by-path/platform-fc880000.usb-usb-0:1:1.0-video-index0
+[2024-10-24 17:38:46] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: getting capabilities (UsbCameraImpl.cpp:663)
+[2024-10-24 17:38:46] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: caching properties (UsbCameraImpl.cpp:675)
+[2024-10-24 17:38:46] [CSCore - PvCSCoreLogger] [INFO] ACAM2: set format 1 res 320x240
+[2024-10-24 17:38:46] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: allocating buffers (UsbCameraImpl.cpp:701)
+[2024-10-24 17:38:46] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: mapping buffers (UsbCameraImpl.cpp:715)
+[2024-10-24 17:38:46] [Config - SqlConfigProvider] [INFO] Settings saved!
+[2024-10-24 17:38:46] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: queuing buffers (UsbCameraImpl.cpp:765)
+[2024-10-24 17:38:46] [VisionModule - PipelineManager] [DEBUG] Creating AprilTag pipeline
+[2024-10-24 17:38:46] [WebServer - DataChangeService] [DEBUG] Added subscriber - Sources: DCS_WEBSOCKET, DCS_HTTP, DCS_NETWORKTABLES, DCS_VISIONMODULE, DCS_OTHER, Destinations: DCD_ACTIVEMODULE, DCD_ACTIVEPIPELINESETTINGS, DCD_GENSETTINGS, DCD_UI, DCD_WEBSERVER, DCD_OTHER
+[2024-10-24 17:38:46] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1181_Input_MJPEG_Server: waiting for clients to connect (MjpegServerImpl.cpp:946)
+[2024-10-24 17:38:46] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1182_Output_MJPEG_Server: waiting for clients to connect (MjpegServerImpl.cpp:946)
+[2024-10-24 17:38:47] [VisionModule - VisionModule - ACAM2] [INFO] Setting pipeline to 0
+[2024-10-24 17:38:47] [VisionModule - VisionModule - ACAM2] [INFO] Pipeline name: New Pipeline
+[2024-10-24 17:38:47] [Camera - USBFrameProvider - ACAM2] [INFO] Camera connected! running callback
+[2024-10-24 17:38:47] [Camera - VisionSourceManager] [DEBUG] Creating VisionSource for CameraConfiguration [uniqueName=f2a3434b-e18e-4fed-8027-b836e973bde0, matchedCameraInfo=PVUsbCameraInfo[type=UsbCamera, dev=2, path='/dev/video2', name='ACAM1', otherPaths=[/dev/v4l/by-id/usb-Arducam_Technology_Co.__Ltd._ACAM1_1736.1-video-index0, /dev/v4l/by-path/platform-fc800000.usb-usbv2-0:1:1.0-video-index0, /dev/v4l/by-path/platform-fc800000.usb-usb-0:1:1.0-video-index0], vid=3141, pid=25446, uniquePath='/dev/v4l/by-path/platform-fc800000.usb-usb-0:1:1.0-video-index0'], nickname=ACAM3, deactivated=false, cameraQuirks=QuirkyCamera [baseName=ACAM1, displayName=, usbVid=3141, usbPid=25446, quirks={FPSCap100=false, AdjustableFocus=false, AwbRedBlueGain=false, InnoOV9281Controls=false, PsEyeControls=false, ArduOV2311Controls=false, LifeCamControls=false, ArduOV9281Controls=false, CompletelyBroken=false, See3Cam_24CUG=false, StickyFPS=true, Gain=true, ArduCamCamera=true, ArduOV9782Controls=true, ArduOV9782=false}], FOV=70.0]
+[2024-10-24 17:38:47] [Camera - USBCameraSource - ACAM2] [DEBUG] Cam Properties Dump:
+Name: connect_verbose, Kind: kInteger, Value: 2, Min: 0, Max: 1, Dflt: 1, Step: 1
+Name: , Kind: kNone, Value: 0, Min: 0, Max: 0, Dflt: 0, Step: 0
+Name: raw_brightness, Kind: kInteger, Value: 2, Min: -64, Max: 64, Dflt: 0, Step: 1
+Name: brightness, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: raw_contrast, Kind: kInteger, Value: 2, Min: 0, Max: 64, Dflt: 32, Step: 1
+Name: contrast, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: raw_saturation, Kind: kInteger, Value: 2, Min: 0, Max: 128, Dflt: 90, Step: 1
+Name: saturation, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 70, Step: 1
+Name: raw_hue, Kind: kInteger, Value: 2, Min: -40, Max: 40, Dflt: 0, Step: 1
+Name: hue, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: white_balance_automatic, Kind: kBoolean, Value: 1, Min: 0, Max: 1, Dflt: 1, Step: 1
+Name: gamma, Kind: kInteger, Value: 2, Min: 72, Max: 500, Dflt: 100, Step: 1
+Name: raw_gain, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 0, Step: 1
+Name: gain, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 0, Step: 1
+Name: power_line_frequency, Kind: kEnum, Value: 8, Min: 0, Max: 2, Dflt: 2, Step: 1
+Name: white_balance_temperature, Kind: kInteger, Value: 2, Min: 2800, Max: 6500, Dflt: 4600, Step: 1
+Name: raw_sharpness, Kind: kInteger, Value: 2, Min: 0, Max: 6, Dflt: 3, Step: 1
+Name: sharpness, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: backlight_compensation, Kind: kInteger, Value: 2, Min: 0, Max: 2, Dflt: 1, Step: 1
+Name: auto_exposure, Kind: kEnum, Value: 8, Min: 0, Max: 3, Dflt: 3, Step: 1
+Name: raw_exposure_time_absolute, Kind: kInteger, Value: 2, Min: 1, Max: 5000, Dflt: 157, Step: 1
+Name: exposure_time_absolute, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 3, Step: 1
+Name: exposure_dynamic_framerate, Kind: kBoolean, Value: 1, Min: 0, Max: 1, Dflt: 0, Step: 1
+
+[2024-10-24 17:38:47] [Camera - USBCameraSource - ACAM3] [INFO] Quirky camera detected: QuirkyCamera [baseName=ACAM1, displayName=, usbVid=3141, usbPid=25446, quirks={FPSCap100=false, AdjustableFocus=false, AwbRedBlueGain=false, InnoOV9281Controls=false, PsEyeControls=false, ArduOV2311Controls=false, LifeCamControls=false, ArduOV9281Controls=false, CompletelyBroken=false, See3Cam_24CUG=false, StickyFPS=true, Gain=true, ArduCamCamera=true, ArduOV9782Controls=true, ArduOV9782=false}]
+[2024-10-24 17:38:47] [VisionModule - VisionSourceSettables - ACAM2] [INFO] Caching cscore properties
+[2024-10-24 17:38:47] [Camera - USBCameraSource - ACAM3] [DEBUG] Using Arducam OV9782 Settables
+[2024-10-24 17:38:47] [Camera - USBCameraSource - ACAM3] [INFO] Created settables org.photonvision.vision.camera.USBCameras.ArduOV9782CameraSettables@35645047
+[2024-10-24 17:38:47] [CSCore - PvCSCoreLogger] [INFO] ACAM3: Attempting to connect to USB camera on /dev/v4l/by-path/platform-fc800000.usb-usb-0:1:1.0-video-index0
+[2024-10-24 17:38:47] [VisionModule - PipelineManager] [DEBUG] Creating AprilTag pipeline
+[2024-10-24 17:38:47] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: opening device (UsbCameraImpl.cpp:651)
+[2024-10-24 17:38:47] [WebServer - DataChangeService] [DEBUG] Added subscriber - Sources: DCS_WEBSOCKET, DCS_HTTP, DCS_NETWORKTABLES, DCS_VISIONMODULE, DCS_OTHER, Destinations: DCD_ACTIVEMODULE, DCD_ACTIVEPIPELINESETTINGS, DCD_GENSETTINGS, DCD_UI, DCD_WEBSERVER, DCD_OTHER
+[2024-10-24 17:38:47] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1183_Input_MJPEG_Server: waiting for clients to connect (MjpegServerImpl.cpp:946)
+[2024-10-24 17:38:47] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1184_Output_MJPEG_Server: waiting for clients to connect (MjpegServerImpl.cpp:946)
+[2024-10-24 17:38:47] [VisionModule - VisionModule - ACAM3] [INFO] Setting pipeline to 0
+[2024-10-24 17:38:47] [VisionModule - VisionModule - ACAM3] [INFO] Pipeline name: New Pipeline
+[2024-10-24 17:38:47] [Camera - VisionSourceManager] [INFO] Finished registering loaded camera configs! Started 2 active VisionModules, with 2 disabled VisionModules
+[2024-10-24 17:38:47] [General - Main] [INFO] Starting server...
+[2024-10-24 17:38:47] [WebServer - DataChangeService] [DEBUG] Added subscriber - Sources: DCS_WEBSOCKET, DCS_HTTP, DCS_NETWORKTABLES, DCS_VISIONMODULE, DCS_OTHER, Destinations: DCD_WEBSERVER
+[2024-10-24 17:38:47] [CSCore - PvCSCoreLogger] [INFO] ACAM3: Connected to USB camera on /dev/v4l/by-path/platform-fc800000.usb-usb-0:1:1.0-video-index0
+[2024-10-24 17:38:47] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: getting capabilities (UsbCameraImpl.cpp:663)
+[2024-10-24 17:38:47] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: caching properties (UsbCameraImpl.cpp:675)
+[2024-10-24 17:38:47] [CSCore - PvCSCoreLogger] [INFO] ACAM3: set format 1 res 320x240
+[2024-10-24 17:38:47] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: allocating buffers (UsbCameraImpl.cpp:701)
+[2024-10-24 17:38:47] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: mapping buffers (UsbCameraImpl.cpp:715)
+[2024-10-24 17:38:47] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: queuing buffers (UsbCameraImpl.cpp:765)
+[2024-10-24 17:38:47] [Camera - USBFrameProvider - ACAM3] [INFO] Camera connected! running callback
+[2024-10-24 17:38:47] [Camera - USBCameraSource - ACAM3] [DEBUG] Cam Properties Dump:
+Name: connect_verbose, Kind: kInteger, Value: 2, Min: 0, Max: 1, Dflt: 1, Step: 1
+Name: , Kind: kNone, Value: 0, Min: 0, Max: 0, Dflt: 0, Step: 0
+Name: raw_brightness, Kind: kInteger, Value: 2, Min: -64, Max: 64, Dflt: 0, Step: 1
+Name: brightness, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: raw_contrast, Kind: kInteger, Value: 2, Min: 0, Max: 64, Dflt: 32, Step: 1
+Name: contrast, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: raw_saturation, Kind: kInteger, Value: 2, Min: 0, Max: 128, Dflt: 90, Step: 1
+Name: saturation, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 70, Step: 1
+Name: raw_hue, Kind: kInteger, Value: 2, Min: -40, Max: 40, Dflt: 0, Step: 1
+Name: hue, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: white_balance_automatic, Kind: kBoolean, Value: 1, Min: 0, Max: 1, Dflt: 1, Step: 1
+Name: gamma, Kind: kInteger, Value: 2, Min: 72, Max: 500, Dflt: 100, Step: 1
+Name: raw_gain, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 0, Step: 1
+Name: gain, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 0, Step: 1
+Name: power_line_frequency, Kind: kEnum, Value: 8, Min: 0, Max: 2, Dflt: 2, Step: 1
+Name: white_balance_temperature, Kind: kInteger, Value: 2, Min: 2800, Max: 6500, Dflt: 4600, Step: 1
+Name: raw_sharpness, Kind: kInteger, Value: 2, Min: 0, Max: 6, Dflt: 3, Step: 1
+Name: sharpness, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: backlight_compensation, Kind: kInteger, Value: 2, Min: 0, Max: 2, Dflt: 1, Step: 1
+Name: auto_exposure, Kind: kEnum, Value: 8, Min: 0, Max: 3, Dflt: 3, Step: 1
+Name: raw_exposure_time_absolute, Kind: kInteger, Value: 2, Min: 1, Max: 5000, Dflt: 157, Step: 1
+Name: exposure_time_absolute, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 3, Step: 1
+Name: exposure_dynamic_framerate, Kind: kBoolean, Value: 1, Min: 0, Max: 1, Dflt: 0, Step: 1
+
+[2024-10-24 17:38:47] [VisionModule - VisionSourceSettables - ACAM3] [INFO] Caching cscore properties
+[2024-10-24 17:38:47] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] No property exposure_metering_mode for ACAM2 , skipping.
+[2024-10-24 17:38:47] [WebServer - DataChangeService] [DEBUG] Added subscriber - Sources: DCS_WEBSOCKET, DCS_HTTP, DCS_NETWORKTABLES, DCS_VISIONMODULE, DCS_OTHER, Destinations: DCD_UI
+[2024-10-24 17:38:47] [WebServer - DataChangeService] [DEBUG] Added subscriber - Sources: DCS_WEBSOCKET, Destinations: DCD_GENSETTINGS
+[2024-10-24 17:38:47] [VisionModule - VisionSourceSettables - ACAM2] [INFO] Setting video mode to FPS: 30 Width: 1280 Height: 720 Pixel Format: kMJPEG
+[2024-10-24 17:38:47] [CSCore - PvCSCoreLogger] [INFO] ACAM2: Attempting to connect to USB camera on /dev/v4l/by-path/platform-fc880000.usb-usb-0:1:1.0-video-index0
+[2024-10-24 17:38:47] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: opening device (UsbCameraImpl.cpp:651)
+[2024-10-24 17:38:47] [CSCore - PvCSCoreLogger] [INFO] ACAM2: Connected to USB camera on /dev/v4l/by-path/platform-fc880000.usb-usb-0:1:1.0-video-index0
+[2024-10-24 17:38:47] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: getting capabilities (UsbCameraImpl.cpp:663)
+[2024-10-24 17:38:47] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: restoring video mode (UsbCameraImpl.cpp:681)
+[2024-10-24 17:38:47] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] No property exposure_metering_mode for ACAM3 , skipping.
+[2024-10-24 17:38:47] [VisionModule - VisionSourceSettables - ACAM3] [INFO] Setting video mode to FPS: 30 Width: 1280 Height: 720 Pixel Format: kMJPEG
+[2024-10-24 17:38:48] [CSCore - PvCSCoreLogger] [INFO] ACAM3: Attempting to connect to USB camera on /dev/v4l/by-path/platform-fc800000.usb-usb-0:1:1.0-video-index0
+[2024-10-24 17:38:48] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: opening device (UsbCameraImpl.cpp:651)
+[2024-10-24 17:38:48] [CSCore - PvCSCoreLogger] [INFO] ACAM3: Connected to USB camera on /dev/v4l/by-path/platform-fc800000.usb-usb-0:1:1.0-video-index0
+[2024-10-24 17:38:48] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: getting capabilities (UsbCameraImpl.cpp:663)
+[2024-10-24 17:38:48] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: restoring video mode (UsbCameraImpl.cpp:681)
+[2024-10-24 17:38:48] [CSCore - PvCSCoreLogger] [INFO] ACAM2: set format 1 res 1280x720
+[2024-10-24 17:38:48] [CSCore - PvCSCoreLogger] [INFO] ACAM2: set FPS to 30
+[2024-10-24 17:38:48] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: restoring settings (UsbCameraImpl.cpp:686)
+[2024-10-24 17:38:48] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: allocating buffers (UsbCameraImpl.cpp:701)
+[2024-10-24 17:38:48] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: mapping buffers (UsbCameraImpl.cpp:715)
+[2024-10-24 17:38:48] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: queuing buffers (UsbCameraImpl.cpp:765)
+[2024-10-24 17:38:48] [CSCore - PvCSCoreLogger] [INFO] ACAM3: set format 1 res 1280x720
+[2024-10-24 17:38:48] [CSCore - PvCSCoreLogger] [INFO] ACAM3: set FPS to 30
+[2024-10-24 17:38:48] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: restoring settings (UsbCameraImpl.cpp:686)
+[2024-10-24 17:38:48] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: allocating buffers (UsbCameraImpl.cpp:701)
+[2024-10-24 17:38:48] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: mapping buffers (UsbCameraImpl.cpp:715)
+[2024-10-24 17:38:48] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: queuing buffers (UsbCameraImpl.cpp:765)
+[2024-10-24 17:38:48] [Config - ConfigManager] [DEBUG] Saving to disk...
+[2024-10-24 17:38:48] [Config - SqlConfigProvider] [DEBUG] Saving to disk
+[2024-10-24 17:38:48] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] Failed to set video mode!
+[2024-10-24 17:38:48] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] Setting property raw_exposure_time_absolute to 1 (user requested 1.0 μs)
+[2024-10-24 17:38:48] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] Setting auto exposure to false
+[2024-10-24 17:38:48] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] No property auto_exposure_bias for ACAM2 , skipping.
+[2024-10-24 17:38:48] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] No property iso_sensitivity_auto for ACAM2 , skipping.
+[2024-10-24 17:38:48] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] No property iso_sensitivity for ACAM2 , skipping.
+[2024-10-24 17:38:49] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] Setting property raw_exposure_time_absolute to 1 (user requested 1.0 μs)
+[2024-10-24 17:38:49] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] No property gain_automatic for ACAM2 , skipping.
+[2024-10-24 17:38:49] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] Setting property white_balance_temperature to 4000 (user requested 4000 degrees)
+[2024-10-24 17:38:49] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] Setting auto white balance to false
+[2024-10-24 17:38:49] [Config - SqlConfigProvider] [INFO] Settings saved!
+[2024-10-24 17:38:49] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] Failed to set video mode!
+[2024-10-24 17:38:49] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] Setting property raw_exposure_time_absolute to 2 (user requested 2.0 μs)
+[2024-10-24 17:38:49] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] Setting auto exposure to false
+[2024-10-24 17:38:49] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] No property auto_exposure_bias for ACAM3 , skipping.
+[2024-10-24 17:38:49] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] No property iso_sensitivity_auto for ACAM3 , skipping.
+[2024-10-24 17:38:49] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] No property iso_sensitivity for ACAM3 , skipping.
+[2024-10-24 17:38:49] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] Setting property raw_exposure_time_absolute to 2 (user requested 2.0 μs)
+[2024-10-24 17:38:49] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] No property gain_automatic for ACAM3 , skipping.
+[2024-10-24 17:38:49] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] Setting property white_balance_temperature to 4000 (user requested 4000 degrees)
+[2024-10-24 17:38:49] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] Setting auto white balance to false
+[2024-10-24 17:38:50] [NetworkTables - NetworkTablesManager] [INFO] NT: INFO 20: CONNECTED NT4 to 10.17.36.2 port 5810 (NetworkClient.cpp:413)
+[2024-10-24 17:38:50] [NetworkTables - NetworkTablesManager] [INFO] NT connected to 10.17.36.2:5810! (NT version 1025)
+[2024-10-24 17:38:50] [General - ScriptManager] [INFO] Queued event: kNTConnected
+[2024-10-24 17:38:50] [NetworkTables - TimeSyncManager] [DEBUG] NT (re)connected -- restarting Time Sync Client at 127.0.0.1:5810
+[2024-10-24 17:38:51] [NetworkTables - TimeSyncManager] [DEBUG] Changing TimeSyncClient server to 10.17.36.2

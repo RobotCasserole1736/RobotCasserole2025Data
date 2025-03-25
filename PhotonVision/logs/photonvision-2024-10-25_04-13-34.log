@@ -1,0 +1,1265 @@
+[2024-10-25 16:13:35] [General - Main] [INFO] Starting PhotonVision version v2025.1.1 on platform Linux AARCH 64-bit with RK3588
+[2024-10-25 16:13:35] [General - Main] [INFO] PhotonVision image version: v2025.0.3;opi5
+[2024-10-25 16:13:38] [General - Main] [INFO] WPI JNI libraries loaded.
+[2024-10-25 16:13:38] [General - Main] [INFO] photon-targeting JNI libraries loaded.
+[2024-10-25 16:13:38] [Camera - RknnDetectorJNI] [INFO] Successfully loaded shared object librga.so
+[2024-10-25 16:13:38] [Camera - RknnDetectorJNI] [INFO] Successfully loaded shared object librknnrt.so
+[2024-10-25 16:13:38] [Camera - RknnDetectorJNI] [INFO] Successfully loaded shared object librknn_jni.so
+[2024-10-25 16:13:39] [Camera - RknnDetectorJNI] [INFO] Successfully loaded shared object libmrcal_jni.so
+[2024-10-25 16:13:39] [General - Main] [INFO] Logging initialized in debug mode.
+[2024-10-25 16:13:39] [General - Main] [DEBUG] Loading ConfigManager...
+[2024-10-25 16:13:39] [Config - SqlConfigProvider] [DEBUG] Using database /opt/photonvision/photonvision_config/photon.sqlite
+[2024-10-25 16:13:39] [Config - SqlConfigProvider] [INFO] Using correct database version: 2
+[2024-10-25 16:13:39] [Config - SqlConfigProvider] [DEBUG] Loading config...
+[2024-10-25 16:13:39] [Config - SqlConfigProvider] [ERROR] Could not deserialize apriltag layout! Loading defaults: Provided empty string for class edu.wpi.first.apriltag.AprilTagFieldLayout
+[2024-10-25 16:13:39] [Config - SqlConfigProvider] [ERROR] org.eclipse.jetty.io.EofException: Provided empty string for class edu.wpi.first.apriltag.AprilTagFieldLayout
+	at org.photonvision.common.util.file.JacksonUtils.deserialize(JacksonUtils.java:81)
+	at org.photonvision.common.configuration.SqlConfigProvider.load(SqlConfigProvider.java:296)
+	at org.photonvision.common.configuration.ConfigManager.load(ConfigManager.java:192)
+	at org.photonvision.Main.main(Main.java:267)
+
+[2024-10-25 16:13:40] [General - Main] [INFO] Loading ML models...
+[2024-10-25 16:13:40] [Config - NeuralNetworkModelManager] [INFO] Skipping extraction of DNN resource: models/note-640-640-yolov5s.rknn
+[2024-10-25 16:13:40] [Config - NeuralNetworkModelManager] [INFO] Skipping extraction of DNN resource: models/note-640-640-yolov5s-labels.txt
+[2024-10-25 16:13:40] [Config - NeuralNetworkModelManager] [INFO] Supported backends: [RKNN]
+[2024-10-25 16:13:40] [Config - NeuralNetworkModelManager] [INFO] Loaded model note-640-640-yolov5s.rknn for backend RKNN
+[2024-10-25 16:13:40] [General - Main] [DEBUG] Loading HardwareManager...
+[2024-10-25 16:13:40] [NetworkTables - TimeSyncManager] [DEBUG] Starting TimeSyncClient on localhost (for now)
+[2024-10-25 16:13:40] [General - Main] [DEBUG] Loading NetworkManager...
+[2024-10-25 16:13:40] [General - ShellExec] [DEBUG] Executing "id -u"
+[2024-10-25 16:13:40] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 16:13:40] [General - ShellExec] [DEBUG] Executing "nmcli -t -f GENERAL.CONNECTION,GENERAL.DEVICE,GENERAL.TYPE device show"
+[2024-10-25 16:13:40] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 16:13:40] [General - NetworkUtils] [DEBUG] Found network interfaces: [NMDeviceInfo [connName=static-end1, devName=end1, nmType=NMTYPE_ETHERNET]]
+[2024-10-25 16:13:40] [General - NetworkManager] [DEBUG] Watching network interface at path: /sys/class/net/end1/carrier
+[2024-10-25 16:13:40] [General - NetworkManager] [INFO] Setting STATIC with team 1736 on end1
+[2024-10-25 16:13:40] [General - NetworkManager] [INFO] Interface end1 has address(es): [/10.17.36.15/8 [/10.255.255.255]]
+[2024-10-25 16:13:40] [General - ShellExec] [DEBUG] Executing "cat /etc/hostname | tr -d " \t\n\r""
+[2024-10-25 16:13:40] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 16:13:40] [General - NetworkManager] [DEBUG] Old host name: "photonvision"
+[2024-10-25 16:13:40] [General - NetworkManager] [DEBUG] New host name: "photonvision"
+[2024-10-25 16:13:40] [General - NetworkManager] [INFO] Updating the Static connection static-end1
+[2024-10-25 16:13:40] [General - ShellExec] [DEBUG] Executing "nmcli connection modify static-end1 autoconnect yes ipv4.method manual ipv6.method disabled ipv4.addresses 10.17.36.15/8 ipv4.gateway 10.17.36.1 "
+[2024-10-25 16:13:41] [General - KernelLogLogger] [DEBUG] 2024-10-25T16:13:40.207396+00:00 photonvision kernel: platform mtd_vendor_storage: deferred probe pending
+[2024-10-25 16:13:41] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 16:13:41] [General - NetworkManager] [INFO] Activating the Static connection static-end1
+[2024-10-25 16:13:41] [General - ShellExec] [DEBUG] Executing "nmcli connection up "static-end1""
+[2024-10-25 16:13:41] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 16:13:41] [General - Main] [DEBUG] Loading NetworkTablesManager...
+[2024-10-25 16:13:41] [NetworkTables - NetworkTablesManager] [INFO] Starting NT Client, server team is 1736
+[2024-10-25 16:13:41] [NetworkTables - NetworkTablesManager] [INFO] NT: INFO 20: starting network client (NetworkClient.cpp:46)
+[2024-10-25 16:13:41] [NetworkTables - NetworkTablesManager] [INFO] Starting NT Client, server team is 1736
+[2024-10-25 16:13:41] [General - Main] [DEBUG] Loading VisionSourceManager...
+[2024-10-25 16:13:41] [NetworkTables - NetworkTablesManager] [ERROR] [NetworkTablesManager] Could not connect to the robot! Will retry in the background...
+[2024-10-25 16:13:41] [Camera - VisionSourceManager] [INFO] Registering loaded camera configs
+[2024-10-25 16:13:41] [Camera - VisionSourceManager] [DEBUG] Creating VisionSource for CameraConfiguration [uniqueName=3b4a42f3-57f7-49b3-a4c5-266a62aada95, matchedCameraInfo=PVUsbCameraInfo[type=UsbCamera, dev=0, path='/dev/video0', name='ACAM4', otherPaths=[/dev/v4l/by-id/usb-Arducam_Technology_Co.__Ltd._ACAM4_1736.4-video-index0, /dev/v4l/by-path/platform-fc880000.usb-usbv2-0:1:1.0-video-index0, /dev/v4l/by-path/platform-fc880000.usb-usb-0:1:1.0-video-index0], vid=3141, pid=25446, uniquePath='/dev/v4l/by-path/platform-fc880000.usb-usb-0:1:1.0-video-index0'], nickname=ACAM2, deactivated=false, cameraQuirks=QuirkyCamera [baseName=ACAM4, displayName=, usbVid=3141, usbPid=25446, quirks={FPSCap100=false, See3Cam_24CUG=false, AwbRedBlueGain=false, PsEyeControls=false, LifeCamControls=false, AdjustableFocus=false, ArduOV2311Controls=false, ArduOV9281Controls=false, InnoOV9281Controls=false, ArduOV9782Controls=true, StickyFPS=true, Gain=true, CompletelyBroken=false, ArduCamCamera=true, ArduOV9782=false}], FOV=70.0]
+[2024-10-25 16:13:41] [Camera - USBCameraSource - ACAM2] [INFO] Quirky camera detected: QuirkyCamera [baseName=ACAM4, displayName=, usbVid=3141, usbPid=25446, quirks={FPSCap100=false, See3Cam_24CUG=false, AwbRedBlueGain=false, PsEyeControls=false, LifeCamControls=false, AdjustableFocus=false, ArduOV2311Controls=false, ArduOV9281Controls=false, InnoOV9281Controls=false, ArduOV9782Controls=true, StickyFPS=true, Gain=true, CompletelyBroken=false, ArduCamCamera=true, ArduOV9782=false}]
+[2024-10-25 16:13:41] [CSCore - PvCSCoreLogger] [INFO] ACAM2: Attempting to connect to USB camera on /dev/v4l/by-path/platform-fc880000.usb-usb-0:1:1.0-video-index0
+[2024-10-25 16:13:41] [Camera - USBCameraSource - ACAM2] [DEBUG] Using Arducam OV9782 Settables
+[2024-10-25 16:13:41] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: opening device (UsbCameraImpl.cpp:651)
+[2024-10-25 16:13:41] [Camera - USBCameraSource - ACAM2] [INFO] Created settables org.photonvision.vision.camera.USBCameras.ArduOV9782CameraSettables@38145825
+[2024-10-25 16:13:41] [Config - ConfigManager] [DEBUG] Saving to disk...
+[2024-10-25 16:13:41] [Config - SqlConfigProvider] [DEBUG] Saving to disk
+[2024-10-25 16:13:41] [VisionModule - PipelineManager] [DEBUG] Creating AprilTag pipeline
+[2024-10-25 16:13:41] [CSCore - PvCSCoreLogger] [INFO] ACAM2: Connected to USB camera on /dev/v4l/by-path/platform-fc880000.usb-usb-0:1:1.0-video-index0
+[2024-10-25 16:13:41] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: getting capabilities (UsbCameraImpl.cpp:663)
+[2024-10-25 16:13:41] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: caching properties (UsbCameraImpl.cpp:675)
+[2024-10-25 16:13:41] [CSCore - PvCSCoreLogger] [INFO] ACAM2: set format 1 res 320x240
+[2024-10-25 16:13:41] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: allocating buffers (UsbCameraImpl.cpp:701)
+[2024-10-25 16:13:41] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: mapping buffers (UsbCameraImpl.cpp:715)
+[2024-10-25 16:13:41] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: queuing buffers (UsbCameraImpl.cpp:765)
+[2024-10-25 16:13:41] [WebServer - DataChangeService] [DEBUG] Added subscriber - Sources: DCS_WEBSOCKET, DCS_HTTP, DCS_NETWORKTABLES, DCS_VISIONMODULE, DCS_OTHER, Destinations: DCD_ACTIVEMODULE, DCD_ACTIVEPIPELINESETTINGS, DCD_GENSETTINGS, DCD_UI, DCD_WEBSERVER, DCD_OTHER
+[2024-10-25 16:13:41] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1181_Input_MJPEG_Server: waiting for clients to connect (MjpegServerImpl.cpp:946)
+[2024-10-25 16:13:41] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1182_Output_MJPEG_Server: waiting for clients to connect (MjpegServerImpl.cpp:946)
+[2024-10-25 16:13:42] [Config - SqlConfigProvider] [INFO] Settings saved!
+[2024-10-25 16:13:42] [VisionModule - VisionModule - ACAM2] [INFO] Setting pipeline to 0
+[2024-10-25 16:13:42] [VisionModule - VisionModule - ACAM2] [INFO] Pipeline name: New Pipeline
+[2024-10-25 16:13:42] [Camera - USBFrameProvider - ACAM2] [INFO] Camera connected! running callback
+[2024-10-25 16:13:42] [Camera - VisionSourceManager] [DEBUG] Creating VisionSource for CameraConfiguration [uniqueName=f2a3434b-e18e-4fed-8027-b836e973bde0, matchedCameraInfo=PVUsbCameraInfo[type=UsbCamera, dev=2, path='/dev/video2', name='ACAM1', otherPaths=[/dev/v4l/by-id/usb-Arducam_Technology_Co.__Ltd._ACAM1_1736.1-video-index0, /dev/v4l/by-path/platform-fc800000.usb-usbv2-0:1:1.0-video-index0, /dev/v4l/by-path/platform-fc800000.usb-usb-0:1:1.0-video-index0], vid=3141, pid=25446, uniquePath='/dev/v4l/by-path/platform-fc800000.usb-usb-0:1:1.0-video-index0'], nickname=ACAM3, deactivated=false, cameraQuirks=QuirkyCamera [baseName=ACAM1, displayName=, usbVid=3141, usbPid=25446, quirks={FPSCap100=false, See3Cam_24CUG=false, AwbRedBlueGain=false, PsEyeControls=false, LifeCamControls=false, AdjustableFocus=false, ArduOV2311Controls=false, ArduOV9281Controls=false, InnoOV9281Controls=false, ArduOV9782Controls=true, StickyFPS=true, Gain=true, CompletelyBroken=false, ArduCamCamera=true, ArduOV9782=false}], FOV=70.0]
+[2024-10-25 16:13:42] [Camera - USBCameraSource - ACAM2] [DEBUG] Cam Properties Dump:
+Name: connect_verbose, Kind: kInteger, Value: 2, Min: 0, Max: 1, Dflt: 1, Step: 1
+Name: , Kind: kNone, Value: 0, Min: 0, Max: 0, Dflt: 0, Step: 0
+Name: raw_brightness, Kind: kInteger, Value: 2, Min: -64, Max: 64, Dflt: 0, Step: 1
+Name: brightness, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: raw_contrast, Kind: kInteger, Value: 2, Min: 0, Max: 64, Dflt: 32, Step: 1
+Name: contrast, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: raw_saturation, Kind: kInteger, Value: 2, Min: 0, Max: 128, Dflt: 90, Step: 1
+Name: saturation, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 70, Step: 1
+Name: raw_hue, Kind: kInteger, Value: 2, Min: -40, Max: 40, Dflt: 0, Step: 1
+Name: hue, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: white_balance_automatic, Kind: kBoolean, Value: 1, Min: 0, Max: 1, Dflt: 1, Step: 1
+Name: gamma, Kind: kInteger, Value: 2, Min: 72, Max: 500, Dflt: 100, Step: 1
+Name: raw_gain, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 0, Step: 1
+Name: gain, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 0, Step: 1
+Name: power_line_frequency, Kind: kEnum, Value: 8, Min: 0, Max: 2, Dflt: 2, Step: 1
+Name: white_balance_temperature, Kind: kInteger, Value: 2, Min: 2800, Max: 6500, Dflt: 4600, Step: 1
+Name: raw_sharpness, Kind: kInteger, Value: 2, Min: 0, Max: 6, Dflt: 3, Step: 1
+Name: sharpness, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: backlight_compensation, Kind: kInteger, Value: 2, Min: 0, Max: 2, Dflt: 1, Step: 1
+Name: auto_exposure, Kind: kEnum, Value: 8, Min: 0, Max: 3, Dflt: 3, Step: 1
+Name: raw_exposure_time_absolute, Kind: kInteger, Value: 2, Min: 1, Max: 5000, Dflt: 157, Step: 1
+Name: exposure_time_absolute, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 3, Step: 1
+Name: exposure_dynamic_framerate, Kind: kBoolean, Value: 1, Min: 0, Max: 1, Dflt: 0, Step: 1
+
+[2024-10-25 16:13:42] [VisionModule - VisionSourceSettables - ACAM2] [INFO] Caching cscore properties
+[2024-10-25 16:13:42] [CSCore - PvCSCoreLogger] [INFO] ACAM3: Attempting to connect to USB camera on /dev/v4l/by-path/platform-fc800000.usb-usb-0:1:1.0-video-index0
+[2024-10-25 16:13:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: opening device (UsbCameraImpl.cpp:651)
+[2024-10-25 16:13:42] [Camera - USBCameraSource - ACAM3] [INFO] Quirky camera detected: QuirkyCamera [baseName=ACAM1, displayName=, usbVid=3141, usbPid=25446, quirks={FPSCap100=false, See3Cam_24CUG=false, AwbRedBlueGain=false, PsEyeControls=false, LifeCamControls=false, AdjustableFocus=false, ArduOV2311Controls=false, ArduOV9281Controls=false, InnoOV9281Controls=false, ArduOV9782Controls=true, StickyFPS=true, Gain=true, CompletelyBroken=false, ArduCamCamera=true, ArduOV9782=false}]
+[2024-10-25 16:13:42] [Camera - USBCameraSource - ACAM3] [DEBUG] Using Arducam OV9782 Settables
+[2024-10-25 16:13:42] [Camera - USBCameraSource - ACAM3] [INFO] Created settables org.photonvision.vision.camera.USBCameras.ArduOV9782CameraSettables@36b4091c
+[2024-10-25 16:13:42] [CSCore - PvCSCoreLogger] [INFO] ACAM3: Connected to USB camera on /dev/v4l/by-path/platform-fc800000.usb-usb-0:1:1.0-video-index0
+[2024-10-25 16:13:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: getting capabilities (UsbCameraImpl.cpp:663)
+[2024-10-25 16:13:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: caching properties (UsbCameraImpl.cpp:675)
+[2024-10-25 16:13:42] [CSCore - PvCSCoreLogger] [INFO] ACAM3: set format 1 res 320x240
+[2024-10-25 16:13:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: allocating buffers (UsbCameraImpl.cpp:701)
+[2024-10-25 16:13:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: mapping buffers (UsbCameraImpl.cpp:715)
+[2024-10-25 16:13:42] [VisionModule - PipelineManager] [DEBUG] Creating AprilTag pipeline
+[2024-10-25 16:13:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: queuing buffers (UsbCameraImpl.cpp:765)
+[2024-10-25 16:13:42] [WebServer - DataChangeService] [DEBUG] Added subscriber - Sources: DCS_WEBSOCKET, DCS_HTTP, DCS_NETWORKTABLES, DCS_VISIONMODULE, DCS_OTHER, Destinations: DCD_ACTIVEMODULE, DCD_ACTIVEPIPELINESETTINGS, DCD_GENSETTINGS, DCD_UI, DCD_WEBSERVER, DCD_OTHER
+[2024-10-25 16:13:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1183_Input_MJPEG_Server: waiting for clients to connect (MjpegServerImpl.cpp:946)
+[2024-10-25 16:13:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1184_Output_MJPEG_Server: waiting for clients to connect (MjpegServerImpl.cpp:946)
+[2024-10-25 16:13:42] [VisionModule - VisionModule - ACAM3] [INFO] Setting pipeline to 0
+[2024-10-25 16:13:42] [VisionModule - VisionModule - ACAM3] [INFO] Pipeline name: New Pipeline
+[2024-10-25 16:13:42] [Camera - USBFrameProvider - ACAM3] [INFO] Camera connected! running callback
+[2024-10-25 16:13:42] [Camera - VisionSourceManager] [DEBUG] Creating VisionSource for CameraConfiguration [uniqueName=755f5b1f-c8cd-4120-b38d-5793b48f9ea9, matchedCameraInfo=PVUsbCameraInfo[type=UsbCamera, dev=4, path='/dev/video4', name='Arducam OV9782 USB Camera', otherPaths=[/dev/v4l/by-id/usb-Arducam_Technology_Co.__Ltd._Arducam_OV9782_USB_Camera_UC852-video-index0, /dev/v4l/by-path/platform-xhci-hcd.11.auto-usbv2-0:1:1.0-video-index0, /dev/v4l/by-path/platform-xhci-hcd.11.auto-usb-0:1:1.0-video-index0], vid=3141, pid=25446, uniquePath='/dev/v4l/by-path/platform-xhci-hcd.11.auto-usb-0:1:1.0-video-index0'], nickname=DRIVER_CAM_REAR, deactivated=false, cameraQuirks=QuirkyCamera [baseName=Arducam OV9782 USB Camera, displayName=, usbVid=3141, usbPid=25446, quirks={FPSCap100=false, See3Cam_24CUG=false, AwbRedBlueGain=false, PsEyeControls=false, LifeCamControls=false, AdjustableFocus=false, ArduOV2311Controls=false, ArduOV9281Controls=false, InnoOV9281Controls=false, ArduOV9782Controls=true, Gain=true, StickyFPS=true, CompletelyBroken=false, ArduCamCamera=true, ArduOV9782=false}], FOV=70.0]
+[2024-10-25 16:13:42] [Camera - USBCameraSource - DRIVER_CAM_REAR] [INFO] Quirky camera detected: QuirkyCamera [baseName=Arducam OV9782 USB Camera, displayName=, usbVid=3141, usbPid=25446, quirks={FPSCap100=false, See3Cam_24CUG=false, AwbRedBlueGain=false, PsEyeControls=false, LifeCamControls=false, AdjustableFocus=false, ArduOV2311Controls=false, ArduOV9281Controls=false, InnoOV9281Controls=false, ArduOV9782Controls=true, Gain=true, StickyFPS=true, CompletelyBroken=false, ArduCamCamera=true, ArduOV9782=false}]
+[2024-10-25 16:13:42] [Camera - USBCameraSource - ACAM3] [DEBUG] Cam Properties Dump:
+Name: connect_verbose, Kind: kInteger, Value: 2, Min: 0, Max: 1, Dflt: 1, Step: 1
+Name: , Kind: kNone, Value: 0, Min: 0, Max: 0, Dflt: 0, Step: 0
+Name: raw_brightness, Kind: kInteger, Value: 2, Min: -64, Max: 64, Dflt: 0, Step: 1
+Name: brightness, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: raw_contrast, Kind: kInteger, Value: 2, Min: 0, Max: 64, Dflt: 32, Step: 1
+Name: contrast, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: raw_saturation, Kind: kInteger, Value: 2, Min: 0, Max: 128, Dflt: 90, Step: 1
+Name: saturation, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 70, Step: 1
+Name: raw_hue, Kind: kInteger, Value: 2, Min: -40, Max: 40, Dflt: 0, Step: 1
+Name: hue, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: white_balance_automatic, Kind: kBoolean, Value: 1, Min: 0, Max: 1, Dflt: 1, Step: 1
+Name: gamma, Kind: kInteger, Value: 2, Min: 72, Max: 500, Dflt: 100, Step: 1
+Name: raw_gain, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 0, Step: 1
+Name: gain, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 0, Step: 1
+Name: power_line_frequency, Kind: kEnum, Value: 8, Min: 0, Max: 2, Dflt: 2, Step: 1
+Name: white_balance_temperature, Kind: kInteger, Value: 2, Min: 2800, Max: 6500, Dflt: 4600, Step: 1
+Name: raw_sharpness, Kind: kInteger, Value: 2, Min: 0, Max: 6, Dflt: 3, Step: 1
+Name: sharpness, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: backlight_compensation, Kind: kInteger, Value: 2, Min: 0, Max: 2, Dflt: 1, Step: 1
+Name: auto_exposure, Kind: kEnum, Value: 8, Min: 0, Max: 3, Dflt: 3, Step: 1
+Name: raw_exposure_time_absolute, Kind: kInteger, Value: 2, Min: 1, Max: 5000, Dflt: 157, Step: 1
+Name: exposure_time_absolute, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 3, Step: 1
+Name: exposure_dynamic_framerate, Kind: kBoolean, Value: 1, Min: 0, Max: 1, Dflt: 0, Step: 1
+
+[2024-10-25 16:13:42] [Camera - USBCameraSource - DRIVER_CAM_REAR] [DEBUG] Using Arducam OV9782 Settables
+[2024-10-25 16:13:42] [VisionModule - VisionSourceSettables - ACAM3] [INFO] Caching cscore properties
+[2024-10-25 16:13:42] [Camera - USBCameraSource - DRIVER_CAM_REAR] [INFO] Created settables org.photonvision.vision.camera.USBCameras.ArduOV9782CameraSettables@3403e2ac
+[2024-10-25 16:13:42] [CSCore - PvCSCoreLogger] [INFO] DRIVER_CAM_REAR: Attempting to connect to USB camera on /dev/v4l/by-path/platform-xhci-hcd.11.auto-usb-0:1:1.0-video-index0
+[2024-10-25 16:13:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: DRIVER_CAM_REAR: opening device (UsbCameraImpl.cpp:651)
+[2024-10-25 16:13:42] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] No property exposure_metering_mode for ACAM2 , skipping.
+[2024-10-25 16:13:42] [CSCore - PvCSCoreLogger] [INFO] DRIVER_CAM_REAR: Connected to USB camera on /dev/v4l/by-path/platform-xhci-hcd.11.auto-usb-0:1:1.0-video-index0
+[2024-10-25 16:13:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: DRIVER_CAM_REAR: getting capabilities (UsbCameraImpl.cpp:663)
+[2024-10-25 16:13:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: DRIVER_CAM_REAR: caching properties (UsbCameraImpl.cpp:675)
+[2024-10-25 16:13:42] [CSCore - PvCSCoreLogger] [INFO] DRIVER_CAM_REAR: set format 1 res 320x240
+[2024-10-25 16:13:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: DRIVER_CAM_REAR: allocating buffers (UsbCameraImpl.cpp:701)
+[2024-10-25 16:13:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: DRIVER_CAM_REAR: mapping buffers (UsbCameraImpl.cpp:715)
+[2024-10-25 16:13:42] [WebServer - DataChangeService] [DEBUG] Added subscriber - Sources: DCS_WEBSOCKET, DCS_HTTP, DCS_NETWORKTABLES, DCS_VISIONMODULE, DCS_OTHER, Destinations: DCD_ACTIVEMODULE, DCD_ACTIVEPIPELINESETTINGS, DCD_GENSETTINGS, DCD_UI, DCD_WEBSERVER, DCD_OTHER
+[2024-10-25 16:13:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: DRIVER_CAM_REAR: queuing buffers (UsbCameraImpl.cpp:765)
+[2024-10-25 16:13:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1185_Input_MJPEG_Server: waiting for clients to connect (MjpegServerImpl.cpp:946)
+[2024-10-25 16:13:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: waiting for clients to connect (MjpegServerImpl.cpp:946)
+[2024-10-25 16:13:42] [VisionModule - VisionModule - DRIVER_CAM_REAR] [INFO] Setting pipeline to -1
+[2024-10-25 16:13:42] [VisionModule - VisionModule - DRIVER_CAM_REAR] [INFO] Pipeline name: Driver Mode
+[2024-10-25 16:13:42] [Camera - USBFrameProvider - DRIVER_CAM_REAR] [INFO] Camera connected! running callback
+[2024-10-25 16:13:42] [Camera - USBCameraSource - DRIVER_CAM_REAR] [DEBUG] Cam Properties Dump:
+Name: connect_verbose, Kind: kInteger, Value: 2, Min: 0, Max: 1, Dflt: 1, Step: 1
+Name: , Kind: kNone, Value: 0, Min: 0, Max: 0, Dflt: 0, Step: 0
+Name: raw_brightness, Kind: kInteger, Value: 2, Min: -64, Max: 64, Dflt: 0, Step: 1
+Name: brightness, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: raw_contrast, Kind: kInteger, Value: 2, Min: 0, Max: 64, Dflt: 32, Step: 1
+Name: contrast, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: raw_saturation, Kind: kInteger, Value: 2, Min: 0, Max: 128, Dflt: 90, Step: 1
+Name: saturation, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 70, Step: 1
+Name: raw_hue, Kind: kInteger, Value: 2, Min: -40, Max: 40, Dflt: 0, Step: 1
+Name: hue, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: white_balance_automatic, Kind: kBoolean, Value: 1, Min: 0, Max: 1, Dflt: 1, Step: 1
+Name: gamma, Kind: kInteger, Value: 2, Min: 72, Max: 500, Dflt: 100, Step: 1
+Name: raw_gain, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 0, Step: 1
+Name: gain, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 0, Step: 1
+Name: power_line_frequency, Kind: kEnum, Value: 8, Min: 0, Max: 2, Dflt: 2, Step: 1
+Name: white_balance_temperature, Kind: kInteger, Value: 2, Min: 2800, Max: 6500, Dflt: 4600, Step: 1
+Name: raw_sharpness, Kind: kInteger, Value: 2, Min: 0, Max: 6, Dflt: 3, Step: 1
+Name: sharpness, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: backlight_compensation, Kind: kInteger, Value: 2, Min: 0, Max: 2, Dflt: 1, Step: 1
+Name: auto_exposure, Kind: kEnum, Value: 8, Min: 0, Max: 3, Dflt: 3, Step: 1
+Name: raw_exposure_time_absolute, Kind: kInteger, Value: 2, Min: 1, Max: 5000, Dflt: 157, Step: 1
+Name: exposure_time_absolute, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 3, Step: 1
+Name: exposure_dynamic_framerate, Kind: kBoolean, Value: 1, Min: 0, Max: 1, Dflt: 0, Step: 1
+
+[2024-10-25 16:13:42] [VisionModule - VisionSourceSettables - DRIVER_CAM_REAR] [INFO] Caching cscore properties
+[2024-10-25 16:13:42] [Camera - VisionSourceManager] [INFO] Finished registering loaded camera configs! Started 3 active VisionModules, with 3 disabled VisionModules
+[2024-10-25 16:13:42] [General - Main] [INFO] Starting server...
+[2024-10-25 16:13:42] [WebServer - DataChangeService] [DEBUG] Added subscriber - Sources: DCS_WEBSOCKET, DCS_HTTP, DCS_NETWORKTABLES, DCS_VISIONMODULE, DCS_OTHER, Destinations: DCD_WEBSERVER
+[2024-10-25 16:13:42] [VisionModule - VisionSourceSettables - ACAM2] [INFO] Setting video mode to FPS: 15 Width: 1280 Height: 720 Pixel Format: kMJPEG
+[2024-10-25 16:13:42] [CSCore - PvCSCoreLogger] [INFO] ACAM2: Attempting to connect to USB camera on /dev/v4l/by-path/platform-fc880000.usb-usb-0:1:1.0-video-index0
+[2024-10-25 16:13:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: opening device (UsbCameraImpl.cpp:651)
+[2024-10-25 16:13:42] [CSCore - PvCSCoreLogger] [INFO] ACAM2: Connected to USB camera on /dev/v4l/by-path/platform-fc880000.usb-usb-0:1:1.0-video-index0
+[2024-10-25 16:13:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: getting capabilities (UsbCameraImpl.cpp:663)
+[2024-10-25 16:13:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: restoring video mode (UsbCameraImpl.cpp:681)
+[2024-10-25 16:13:42] [WebServer - DataChangeService] [DEBUG] Added subscriber - Sources: DCS_WEBSOCKET, DCS_HTTP, DCS_NETWORKTABLES, DCS_VISIONMODULE, DCS_OTHER, Destinations: DCD_UI
+[2024-10-25 16:13:42] [WebServer - DataChangeService] [DEBUG] Added subscriber - Sources: DCS_WEBSOCKET, Destinations: DCD_GENSETTINGS
+[2024-10-25 16:13:42] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] No property exposure_metering_mode for ACAM3 , skipping.
+[2024-10-25 16:13:43] [VisionModule - VisionSourceSettables - ACAM3] [INFO] Setting video mode to FPS: 15 Width: 1280 Height: 720 Pixel Format: kMJPEG
+[2024-10-25 16:13:43] [VisionModule - VisionSourceSettables - DRIVER_CAM_REAR] [DEBUG] No property exposure_metering_mode for DRIVER_CAM_REAR , skipping.
+[2024-10-25 16:13:43] [CSCore - PvCSCoreLogger] [INFO] ACAM2: set format 1 res 1280x720
+[2024-10-25 16:13:43] [CSCore - PvCSCoreLogger] [INFO] ACAM3: Attempting to connect to USB camera on /dev/v4l/by-path/platform-fc800000.usb-usb-0:1:1.0-video-index0
+[2024-10-25 16:13:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: opening device (UsbCameraImpl.cpp:651)
+[2024-10-25 16:13:43] [CSCore - PvCSCoreLogger] [INFO] ACAM3: Connected to USB camera on /dev/v4l/by-path/platform-fc800000.usb-usb-0:1:1.0-video-index0
+[2024-10-25 16:13:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: getting capabilities (UsbCameraImpl.cpp:663)
+[2024-10-25 16:13:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: restoring video mode (UsbCameraImpl.cpp:681)
+[2024-10-25 16:13:43] [CSCore - PvCSCoreLogger] [INFO] ACAM2: set FPS to 15
+[2024-10-25 16:13:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: restoring settings (UsbCameraImpl.cpp:686)
+[2024-10-25 16:13:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: allocating buffers (UsbCameraImpl.cpp:701)
+[2024-10-25 16:13:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: mapping buffers (UsbCameraImpl.cpp:715)
+[2024-10-25 16:13:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: queuing buffers (UsbCameraImpl.cpp:765)
+[2024-10-25 16:13:43] [VisionModule - VisionSourceSettables - DRIVER_CAM_REAR] [INFO] Setting video mode to FPS: 30 Width: 320 Height: 240 Pixel Format: kMJPEG
+[2024-10-25 16:13:43] [CSCore - PvCSCoreLogger] [INFO] ACAM3: set format 1 res 1280x720
+[2024-10-25 16:13:43] [CSCore - PvCSCoreLogger] [INFO] ACAM3: set FPS to 15
+[2024-10-25 16:13:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: restoring settings (UsbCameraImpl.cpp:686)
+[2024-10-25 16:13:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: allocating buffers (UsbCameraImpl.cpp:701)
+[2024-10-25 16:13:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: mapping buffers (UsbCameraImpl.cpp:715)
+[2024-10-25 16:13:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: queuing buffers (UsbCameraImpl.cpp:765)
+[2024-10-25 16:13:43] [CSCore - PvCSCoreLogger] [INFO] DRIVER_CAM_REAR: set FPS to 30
+[2024-10-25 16:13:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: DRIVER_CAM_REAR: queuing buffers (UsbCameraImpl.cpp:765)
+[2024-10-25 16:13:43] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] Failed to set video mode!
+[2024-10-25 16:13:43] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] Setting property raw_exposure_time_absolute to 4 (user requested 4.0 μs)
+[2024-10-25 16:13:43] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] Setting auto exposure to false
+[2024-10-25 16:13:43] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] No property auto_exposure_bias for ACAM2 , skipping.
+[2024-10-25 16:13:43] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] No property iso_sensitivity_auto for ACAM2 , skipping.
+[2024-10-25 16:13:43] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] No property iso_sensitivity for ACAM2 , skipping.
+[2024-10-25 16:13:43] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] Setting property raw_exposure_time_absolute to 4 (user requested 4.0 μs)
+[2024-10-25 16:13:43] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] No property gain_automatic for ACAM2 , skipping.
+[2024-10-25 16:13:43] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] Setting property white_balance_temperature to 4000 (user requested 4000 degrees)
+[2024-10-25 16:13:43] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] Setting auto white balance to false
+[2024-10-25 16:13:44] [Config - ConfigManager] [DEBUG] Saving to disk...
+[2024-10-25 16:13:44] [Config - SqlConfigProvider] [DEBUG] Saving to disk
+[2024-10-25 16:13:44] [Camera - USBFrameProvider - ACAM2] [ERROR] Error grabbing image: 
+[2024-10-25 16:13:44] [Config - SqlConfigProvider] [INFO] Settings saved!
+[2024-10-25 16:13:44] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] Failed to set video mode!
+[2024-10-25 16:13:44] [VisionModule - VisionSourceSettables - DRIVER_CAM_REAR] [DEBUG] Failed to set video mode!
+[2024-10-25 16:13:44] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] Setting property raw_exposure_time_absolute to 4 (user requested 4.0 μs)
+[2024-10-25 16:13:44] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] Setting auto exposure to false
+[2024-10-25 16:13:44] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] No property auto_exposure_bias for ACAM3 , skipping.
+[2024-10-25 16:13:44] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] No property iso_sensitivity_auto for ACAM3 , skipping.
+[2024-10-25 16:13:44] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] No property iso_sensitivity for ACAM3 , skipping.
+[2024-10-25 16:13:44] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] Setting property raw_exposure_time_absolute to 4 (user requested 4.0 μs)
+[2024-10-25 16:13:44] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] No property gain_automatic for ACAM3 , skipping.
+[2024-10-25 16:13:44] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] Setting property white_balance_temperature to 4000 (user requested 4000 degrees)
+[2024-10-25 16:13:44] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] Setting auto white balance to false
+[2024-10-25 16:13:44] [VisionModule - VisionSourceSettables - DRIVER_CAM_REAR] [DEBUG] Setting property raw_exposure_time_absolute to 20 (user requested 20.0 μs)
+[2024-10-25 16:13:44] [VisionModule - VisionSourceSettables - DRIVER_CAM_REAR] [DEBUG] Setting auto exposure to true
+[2024-10-25 16:13:44] [VisionModule - VisionSourceSettables - DRIVER_CAM_REAR] [DEBUG] No property auto_exposure_bias for DRIVER_CAM_REAR , skipping.
+[2024-10-25 16:13:44] [VisionModule - VisionSourceSettables - DRIVER_CAM_REAR] [DEBUG] No property iso_sensitivity_auto for DRIVER_CAM_REAR , skipping.
+[2024-10-25 16:13:44] [VisionModule - VisionSourceSettables - DRIVER_CAM_REAR] [DEBUG] No property iso_sensitivity for DRIVER_CAM_REAR , skipping.
+[2024-10-25 16:13:44] [VisionModule - VisionSourceSettables - DRIVER_CAM_REAR] [DEBUG] No property gain_automatic for DRIVER_CAM_REAR , skipping.
+[2024-10-25 16:13:44] [VisionModule - VisionSourceSettables - DRIVER_CAM_REAR] [DEBUG] Setting property white_balance_temperature to 4000 (user requested 4000 degrees)
+[2024-10-25 16:13:44] [VisionModule - VisionSourceSettables - DRIVER_CAM_REAR] [DEBUG] Setting auto white balance to true
+[2024-10-25 16:14:11] [NetworkTables - NetworkTablesManager] [INFO] NT: INFO 20: CONNECTED NT4 to 10.17.36.2 port 5810 (NetworkClient.cpp:413)
+[2024-10-25 16:14:11] [NetworkTables - NetworkTablesManager] [INFO] NT connected to 10.17.36.2:5810! (NT version 1025)
+[2024-10-25 16:14:11] [General - ScriptManager] [INFO] Queued event: kNTConnected
+[2024-10-25 16:14:11] [NetworkTables - TimeSyncManager] [DEBUG] NT (re)connected -- restarting Time Sync Client at 127.0.0.1:5810
+[2024-10-25 16:14:12] [NetworkTables - TimeSyncManager] [DEBUG] Changing TimeSyncClient server to 10.17.36.2
+[2024-10-25 16:14:18] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041418343_N/A-0-ILPE.jpg
+[2024-10-25 16:14:18] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041418370_N/A-0-ILPE.jpg
+[2024-10-25 16:14:20] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041420329_N/A-0-ILPE.jpg
+[2024-10-25 16:14:20] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041420430_N/A-0-ILPE.jpg
+[2024-10-25 16:14:22] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041422352_N/A-0-ILPE.jpg
+[2024-10-25 16:14:22] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041422457_N/A-0-ILPE.jpg
+[2024-10-25 16:14:24] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041424419_N/A-0-ILPE.jpg
+[2024-10-25 16:14:24] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041424447_N/A-0-ILPE.jpg
+[2024-10-25 16:14:26] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041426444_N/A-0-ILPE.jpg
+[2024-10-25 16:14:26] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041426468_N/A-0-ILPE.jpg
+[2024-10-25 16:14:28] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041428433_N/A-0-ILPE.jpg
+[2024-10-25 16:14:28] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041428530_N/A-0-ILPE.jpg
+[2024-10-25 16:14:30] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041430457_N/A-0-ILPE.jpg
+[2024-10-25 16:14:30] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:30] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:30] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:30] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:30] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:30] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041430562_N/A-0-ILPE.jpg
+[2024-10-25 16:14:31] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:31] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504385718 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:31] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504385718" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:31] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:31] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:31] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:14:32] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041432482_N/A-0-ILPE.jpg
+[2024-10-25 16:14:32] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041432583_N/A-0-ILPE.jpg
+[2024-10-25 16:14:32] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:32] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504386720 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:32] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504386720" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:32] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:32] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:32] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:14:33] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:33] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504387717 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:33] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504387717" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:33] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:33] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:33] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:14:34] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041434543_N/A-0-ILPE.jpg
+[2024-10-25 16:14:34] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041434572_N/A-0-ILPE.jpg
+[2024-10-25 16:14:34] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:34] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504388721 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:34] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504388721" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:34] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:34] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:34] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:14:35] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:35] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504389716 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:35] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504389716" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:35] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:35] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:35] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:14:36] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041436572_N/A-0-ILPE.jpg
+[2024-10-25 16:14:36] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041436593_N/A-0-ILPE.jpg
+[2024-10-25 16:14:36] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:36] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504390726 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:36] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504390726" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:36] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:36] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:36] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:14:37] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:37] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504391721 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:37] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504391721" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:37] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:37] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:37] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:14:38] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041438563_N/A-0-ILPE.jpg
+[2024-10-25 16:14:38] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041438663_N/A-0-ILPE.jpg
+[2024-10-25 16:14:38] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:38] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504392719 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:38] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504392719" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:38] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:38] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:38] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:14:39] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:39] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504393715 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:39] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504393715" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:39] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:39] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:39] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:14:40] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041440579_N/A-0-ILPE.jpg
+[2024-10-25 16:14:40] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041440682_N/A-0-ILPE.jpg
+[2024-10-25 16:14:40] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:40] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504394726 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:40] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504394726" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:40] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:40] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:40] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:14:41] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:41] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504395722 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:41] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504395722" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:41] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:41] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:41] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:14:42] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041442674_N/A-0-ILPE.jpg
+[2024-10-25 16:14:42] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041442705_N/A-0-ILPE.jpg
+[2024-10-25 16:14:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504396725 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504396725" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:14:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504397726 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504397726" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:14:44] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041444696_N/A-0-ILPE.jpg
+[2024-10-25 16:14:44] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:44] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504398715 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:44] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504398715" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:44] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:44] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:44] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041444798_N/A-0-ILPE.jpg
+[2024-10-25 16:14:44] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:14:45] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:45] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504399714 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:45] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504399714" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:45] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:45] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:45] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:14:46] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041446658_N/A-0-ILPE.jpg
+[2024-10-25 16:14:46] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041446761_N/A-0-ILPE.jpg
+[2024-10-25 16:14:46] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:46] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504400718 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:46] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504400718" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:46] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:46] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:46] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:14:47] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:47] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504401718 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:47] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504401718" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:47] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:47] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:47] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:14:48] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041448683_N/A-0-ILPE.jpg
+[2024-10-25 16:14:48] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:48] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504402718 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:48] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504402718" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:48] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:48] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:48] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041448782_N/A-0-ILPE.jpg
+[2024-10-25 16:14:48] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:14:49] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:49] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504403711 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:49] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504403711" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:49] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:49] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:49] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:14:50] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041450705_N/A-0-ILPE.jpg
+[2024-10-25 16:14:50] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041450871_N/A-0-ILPE.jpg
+[2024-10-25 16:14:51] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:51] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504405714 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:51] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504405714" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:51] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:51] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:51] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:14:52] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041452736_N/A-0-ILPE.jpg
+[2024-10-25 16:14:52] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:52] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504406713 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:52] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504406713" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:52] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:52] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:52] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:14:52] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041452894_N/A-0-ILPE.jpg
+[2024-10-25 16:14:53] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:53] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504407713 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:53] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504407713" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:53] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:53] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:53] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:14:54] [WebServer - Server] [DEBUG] Handled HTTP request of type GET from endpoint /index.html of req size -1 bytes & type null with return code 304 for host 10.17.36.200 in 25.734629 ms
+[2024-10-25 16:14:54] [WebServer - Server] [DEBUG] Handled HTTP request of type GET from endpoint / of req size -1 bytes & type null with return code 304 for host 10.17.36.200 in 50.83021 ms
+[2024-10-25 16:14:54] [WebServer - Server] [DEBUG] Handled HTTP request of type GET from endpoint /assets/index-C7-j6cdu.css of req size -1 bytes & type null with return code 304 for host 10.17.36.200 in 17.387129 ms
+[2024-10-25 16:14:54] [WebServer - Server] [DEBUG] Handled HTTP request of type GET from endpoint /assets/index-Bnr8jAW6.js of req size -1 bytes & type null with return code 304 for host 10.17.36.200 in 20.114502 ms
+[2024-10-25 16:14:54] [WebServer - Server] [DEBUG] Handled HTTP request of type GET from endpoint /assets/logoLarge-Blny0AlQ.svg of req size -1 bytes & type null with return code 304 for host 10.17.36.200 in 1.014417 ms
+[2024-10-25 16:14:54] [WebServer - Server] [DEBUG] Handled HTTP request of type GET from endpoint /assets/loading-transparent-M6bk-DXt.svg of req size -1 bytes & type null with return code 304 for host 10.17.36.200 in 1.282459 ms
+[2024-10-25 16:14:54] [WebServer - DataSocketHandler] [INFO] New websocket connection from /10.17.36.200:54679
+[2024-10-25 16:14:54] [General - ShellExec] [DEBUG] Executing "nmcli -t -f GENERAL.CONNECTION,GENERAL.DEVICE,GENERAL.TYPE device show"
+[2024-10-25 16:14:54] [WebServer - Server] [DEBUG] Handled HTTP request of type GET from endpoint /assets/prompt-latin-400-normal-CyXKtQGK.woff2 of req size -1 bytes & type null with return code 304 for host 10.17.36.200 in 1.036584 ms
+[2024-10-25 16:14:54] [WebServer - Server] [DEBUG] Handled HTTP request of type GET from endpoint /assets/materialdesignicons-webfont-Dp5v-WZN.woff2 of req size -1 bytes & type null with return code 304 for host 10.17.36.200 in 1.093459 ms
+[2024-10-25 16:14:54] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 16:14:54] [General - NetworkUtils] [DEBUG] Found network interfaces: [NMDeviceInfo [connName=static-end1, devName=end1, nmType=NMTYPE_ETHERNET]]
+[2024-10-25 16:14:54] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1181_Input_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:54] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1182_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:54] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1181_Input_MJPEG_Server: HTTP request: 'GET /stream.mjpg HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:54] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1181_Input_MJPEG_Server: command parameters: "" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:54] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1182_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:54] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1182_Output_MJPEG_Server: command parameters: "" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:54] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1181_Input_MJPEG_Server: request for stream photonvision_Port_1181_Input_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:54] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1182_Output_MJPEG_Server: request for stream photonvision_Port_1182_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:54] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1182_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:54] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1181_Input_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:54] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041454707_N/A-0-ILPE.jpg
+[2024-10-25 16:14:54] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:54] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504408713 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:54] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504408713" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:54] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:54] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:54] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:14:54] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041454925_N/A-0-ILPE.jpg
+[2024-10-25 16:14:55] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:55] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504409716 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:55] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504409716" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:55] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:55] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:55] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:14:56] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041456718_N/A-0-ILPE.jpg
+[2024-10-25 16:14:57] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T04145719_N/A-0-ILPE.jpg
+[2024-10-25 16:14:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504411718 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504411718" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:14:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504412718 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504412718" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:58] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041458812_N/A-0-ILPE.jpg
+[2024-10-25 16:14:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:14:58] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041458983_N/A-0-ILPE.jpg
+[2024-10-25 16:14:59] [WebServer - Server] [DEBUG] Handled HTTP request of type GET from endpoint /api/utils/getImageSnapshots of req size -1 bytes & type null with return code 500 for host 10.17.36.200 in 951.42957 ms
+[2024-10-25 16:14:59] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:14:59] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504413718 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:14:59] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504413718" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:14:59] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:14:59] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:14:59] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:00] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:00] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504414714 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:00] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504414714" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:00] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:00] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:00] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041500830_N/A-0-ILPE.jpg
+[2024-10-25 16:15:00] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:01] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T04150100_N/A-0-ILPE.jpg
+[2024-10-25 16:15:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504415711 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504415711" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:02] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:02] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504416726 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:02] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504416726" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:02] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:02] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:02] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041502796_N/A-0-ILPE.jpg
+[2024-10-25 16:15:02] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:03] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T04150328_N/A-0-ILPE.jpg
+[2024-10-25 16:15:03] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:03] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504417723 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:03] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504417723" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:03] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:03] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:03] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504418722 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504418722" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:04] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041504947_N/A-0-ILPE.jpg
+[2024-10-25 16:15:05] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T04150549_N/A-0-ILPE.jpg
+[2024-10-25 16:15:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504419719 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504419719" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:06] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:06] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504420719 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:06] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504420719" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:06] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:06] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:06] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:06] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041506909_N/A-0-ILPE.jpg
+[2024-10-25 16:15:07] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041507140_N/A-0-ILPE.jpg
+[2024-10-25 16:15:07] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:07] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504421713 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:07] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504421713" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:07] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:07] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:07] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:08] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:08] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504422725 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:08] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504422725" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:08] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:08] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:08] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:08] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041508934_N/A-0-ILPE.jpg
+[2024-10-25 16:15:09] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041509105_N/A-0-ILPE.jpg
+[2024-10-25 16:15:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504423717 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504423717" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504424718 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504424718" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:10] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041510957_N/A-0-ILPE.jpg
+[2024-10-25 16:15:11] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041511131_N/A-0-ILPE.jpg
+[2024-10-25 16:15:11] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:11] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504425714 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:11] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504425714" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:11] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:11] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:11] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:12] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:12] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504426725 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:12] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504426725" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:12] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:12] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:12] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:12] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041512918_N/A-0-ILPE.jpg
+[2024-10-25 16:15:13] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041513154_N/A-0-ILPE.jpg
+[2024-10-25 16:15:13] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:13] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504427723 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:13] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504427723" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:13] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:13] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:13] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:14] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:14] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504428716 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:14] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504428716" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:14] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:14] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:14] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:15] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T04151571_N/A-0-ILPE.jpg
+[2024-10-25 16:15:15] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041515119_N/A-0-ILPE.jpg
+[2024-10-25 16:15:15] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:15] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504429711 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:15] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504429711" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:15] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:15] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:15] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:16] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:16] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504430711 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:16] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504430711" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:16] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:16] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:16] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:17] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T04151733_N/A-0-ILPE.jpg
+[2024-10-25 16:15:17] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041517262_N/A-0-ILPE.jpg
+[2024-10-25 16:15:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504431719 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504431719" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:18] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:18] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504432713 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:18] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504432713" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:18] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:18] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:18] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:19] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T04151956_N/A-0-ILPE.jpg
+[2024-10-25 16:15:19] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041519229_N/A-0-ILPE.jpg
+[2024-10-25 16:15:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504433713 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504433713" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:20] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:20] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504434713 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:20] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504434713" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:20] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:20] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:20] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:21] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T04152185_N/A-0-ILPE.jpg
+[2024-10-25 16:15:21] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041521249_N/A-0-ILPE.jpg
+[2024-10-25 16:15:21] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:21] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504435716 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:21] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504435716" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:21] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:21] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:21] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:22] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:22] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504436717 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:22] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504436717" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:22] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:22] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:22] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:23] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T04152346_N/A-0-ILPE.jpg
+[2024-10-25 16:15:23] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041523279_N/A-0-ILPE.jpg
+[2024-10-25 16:15:23] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:23] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504437716 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:23] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504437716" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:23] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:23] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:23] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:24] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:24] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504438717 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:24] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504438717" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:24] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:24] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:24] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:25] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T04152568_N/A-0-ILPE.jpg
+[2024-10-25 16:15:25] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041525368_N/A-0-ILPE.jpg
+[2024-10-25 16:15:25] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:25] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504439717 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:25] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504439717" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:25] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:25] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:25] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:26] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:26] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504440712 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:26] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504440712" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:26] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:26] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:26] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:27] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T04152797_N/A-0-ILPE.jpg
+[2024-10-25 16:15:27] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041527401_N/A-0-ILPE.jpg
+[2024-10-25 16:15:27] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:27] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504441721 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:27] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504441721" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:27] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:27] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:27] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:28] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:28] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504442717 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:28] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504442717" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:28] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:28] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:28] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:29] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T04152962_N/A-0-ILPE.jpg
+[2024-10-25 16:15:29] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041529349_N/A-0-ILPE.jpg
+[2024-10-25 16:15:29] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:15:29] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504443725 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:15:29] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504443725" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:15:29] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:15:29] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:15:29] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:15:31] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T04153182_N/A-0-ILPE.jpg
+[2024-10-25 16:15:31] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041531378_N/A-0-ILPE.jpg
+[2024-10-25 16:15:33] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041533171_N/A-0-ILPE.jpg
+[2024-10-25 16:15:33] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041533470_N/A-0-ILPE.jpg
+[2024-10-25 16:15:35] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041535196_N/A-0-ILPE.jpg
+[2024-10-25 16:15:35] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041535489_N/A-0-ILPE.jpg
+[2024-10-25 16:15:37] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041537220_N/A-0-ILPE.jpg
+[2024-10-25 16:15:37] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041537517_N/A-0-ILPE.jpg
+[2024-10-25 16:15:39] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041539183_N/A-0-ILPE.jpg
+[2024-10-25 16:15:39] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041539479_N/A-0-ILPE.jpg
+[2024-10-25 16:15:41] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041541271_N/A-0-ILPE.jpg
+[2024-10-25 16:15:41] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041541502_N/A-0-ILPE.jpg
+[2024-10-25 16:15:43] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041543300_N/A-0-ILPE.jpg
+[2024-10-25 16:15:43] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041543590_N/A-0-ILPE.jpg
+[2024-10-25 16:15:45] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041545321_N/A-0-ILPE.jpg
+[2024-10-25 16:15:45] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041545612_N/A-0-ILPE.jpg
+[2024-10-25 16:15:47] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041547284_N/A-0-ILPE.jpg
+[2024-10-25 16:15:47] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041547580_N/A-0-ILPE.jpg
+[2024-10-25 16:15:49] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041549435_N/A-0-ILPE.jpg
+[2024-10-25 16:15:49] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041549603_N/A-0-ILPE.jpg
+[2024-10-25 16:15:51] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041551397_N/A-0-ILPE.jpg
+[2024-10-25 16:15:51] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041551626_N/A-0-ILPE.jpg
+[2024-10-25 16:15:53] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041553419_N/A-0-ILPE.jpg
+[2024-10-25 16:15:53] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041553712_N/A-0-ILPE.jpg
+[2024-10-25 16:15:55] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041555506_N/A-0-ILPE.jpg
+[2024-10-25 16:15:55] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041555739_N/A-0-ILPE.jpg
+[2024-10-25 16:15:57] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041557535_N/A-0-ILPE.jpg
+[2024-10-25 16:15:57] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041557829_N/A-0-ILPE.jpg
+[2024-10-25 16:15:59] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041559499_N/A-0-ILPE.jpg
+[2024-10-25 16:15:59] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041559853_N/A-0-ILPE.jpg
+[2024-10-25 16:16:01] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041601521_N/A-0-ILPE.jpg
+[2024-10-25 16:16:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:16:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504475717 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:16:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504475717" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:16:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:16:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:16:01] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041601818_N/A-0-ILPE.jpg
+[2024-10-25 16:16:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:16:03] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041603553_N/A-0-ILPE.jpg
+[2024-10-25 16:16:03] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041603842_N/A-0-ILPE.jpg
+[2024-10-25 16:16:05] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041605509_N/A-0-ILPE.jpg
+[2024-10-25 16:16:05] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041605864_N/A-0-ILPE.jpg
+[2024-10-25 16:16:07] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041607533_N/A-0-ILPE.jpg
+[2024-10-25 16:16:07] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041607950_N/A-0-ILPE.jpg
+[2024-10-25 16:16:09] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041609560_N/A-0-ILPE.jpg
+[2024-10-25 16:16:09] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041609918_N/A-0-ILPE.jpg
+[2024-10-25 16:16:11] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041611524_N/A-0-ILPE.jpg
+[2024-10-25 16:16:11] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041611941_N/A-0-ILPE.jpg
+[2024-10-25 16:16:13] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041613546_N/A-0-ILPE.jpg
+[2024-10-25 16:16:13] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041613965_N/A-0-ILPE.jpg
+[2024-10-25 16:16:15] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041615630_N/A-0-ILPE.jpg
+[2024-10-25 16:16:15] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041615931_N/A-0-ILPE.jpg
+[2024-10-25 16:16:17] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041617657_N/A-0-ILPE.jpg
+[2024-10-25 16:16:18] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T04161819_N/A-0-ILPE.jpg
+[2024-10-25 16:16:19] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041619686_N/A-0-ILPE.jpg
+[2024-10-25 16:16:20] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T04162043_N/A-0-ILPE.jpg
+[2024-10-25 16:16:21] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041621647_N/A-0-ILPE.jpg
+[2024-10-25 16:16:22] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T04162265_N/A-0-ILPE.jpg
+[2024-10-25 16:16:23] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041623669_N/A-0-ILPE.jpg
+[2024-10-25 16:16:24] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T04162431_N/A-0-ILPE.jpg
+[2024-10-25 16:16:25] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041625695_N/A-0-ILPE.jpg
+[2024-10-25 16:16:26] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T04162650_N/A-0-ILPE.jpg
+[2024-10-25 16:16:27] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041627657_N/A-0-ILPE.jpg
+[2024-10-25 16:16:28] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T04162876_N/A-0-ILPE.jpg
+[2024-10-25 16:16:29] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041629685_N/A-0-ILPE.jpg
+[2024-10-25 16:16:30] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041630164_N/A-0-ILPE.jpg
+[2024-10-25 16:16:31] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041631772_N/A-0-ILPE.jpg
+[2024-10-25 16:16:32] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041632192_N/A-0-ILPE.jpg
+[2024-10-25 16:16:33] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041633796_N/A-0-ILPE.jpg
+[2024-10-25 16:16:34] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041634150_N/A-0-ILPE.jpg
+[2024-10-25 16:16:35] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041635758_N/A-0-ILPE.jpg
+[2024-10-25 16:16:36] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041636177_N/A-0-ILPE.jpg
+[2024-10-25 16:16:37] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041637909_N/A-0-ILPE.jpg
+[2024-10-25 16:16:38] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041638265_N/A-0-ILPE.jpg
+[2024-10-25 16:16:39] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041639871_N/A-0-ILPE.jpg
+[2024-10-25 16:16:40] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041640294_N/A-0-ILPE.jpg
+[2024-10-25 16:16:41] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041641899_N/A-0-ILPE.jpg
+[2024-10-25 16:16:42] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041642324_N/A-0-ILPE.jpg
+[2024-10-25 16:16:43] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041643921_N/A-0-ILPE.jpg
+[2024-10-25 16:16:44] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041644278_N/A-0-ILPE.jpg
+[2024-10-25 16:16:45] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041645884_N/A-0-ILPE.jpg
+[2024-10-25 16:16:46] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041646306_N/A-0-ILPE.jpg
+[2024-10-25 16:16:47] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041647907_N/A-0-ILPE.jpg
+[2024-10-25 16:16:48] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041648330_N/A-0-ILPE.jpg
+[2024-10-25 16:16:49] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041649932_N/A-0-ILPE.jpg
+[2024-10-25 16:16:50] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041650419_N/A-0-ILPE.jpg
+[2024-10-25 16:16:51] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041651895_N/A-0-ILPE.jpg
+[2024-10-25 16:16:52] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041652322_N/A-0-ILPE.jpg
+[2024-10-25 16:16:53] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041653922_N/A-0-ILPE.jpg
+[2024-10-25 16:16:54] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041654412_N/A-0-ILPE.jpg
+[2024-10-25 16:16:56] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T04165608_N/A-0-ILPE.jpg
+[2024-10-25 16:16:56] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041656431_N/A-0-ILPE.jpg
+[2024-10-25 16:16:58] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T04165833_N/A-0-ILPE.jpg
+[2024-10-25 16:16:58] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041658455_N/A-0-ILPE.jpg
+[2024-10-25 16:17:00] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T04170061_N/A-0-ILPE.jpg
+[2024-10-25 16:17:00] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041700426_N/A-0-ILPE.jpg
+[2024-10-25 16:17:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:17:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504535725 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:17:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504535725" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:17:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:17:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:17:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:17:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:17:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:17:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:17:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:17:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:17:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:17:02] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T04170221_N/A-0-ILPE.jpg
+[2024-10-25 16:17:02] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041702573_N/A-0-ILPE.jpg
+[2024-10-25 16:17:03] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:17:03] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504537719 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:17:03] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504537719" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:17:03] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:17:03] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:17:03] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:17:04] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041704174_N/A-0-ILPE.jpg
+[2024-10-25 16:17:04] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041704535_N/A-0-ILPE.jpg
+[2024-10-25 16:17:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:17:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504538711 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:17:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504538711" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:17:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:17:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:17:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:17:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:17:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504539717 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:17:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504539717" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:17:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:17:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:17:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:17:06] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041706136_N/A-0-ILPE.jpg
+[2024-10-25 16:17:06] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041706554_N/A-0-ILPE.jpg
+[2024-10-25 16:17:06] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:17:06] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504540711 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:17:06] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504540711" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:17:06] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:17:06] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:17:06] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:17:08] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041708160_N/A-0-ILPE.jpg
+[2024-10-25 16:17:08] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041708644_N/A-0-ILPE.jpg
+[2024-10-25 16:17:10] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041710250_N/A-0-ILPE.jpg
+[2024-10-25 16:17:10] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041710676_N/A-0-ILPE.jpg
+[2024-10-25 16:17:12] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041712274_N/A-0-ILPE.jpg
+[2024-10-25 16:17:12] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041712634_N/A-0-ILPE.jpg
+[2024-10-25 16:17:14] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041714360_N/A-0-ILPE.jpg
+[2024-10-25 16:17:14] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041714655_N/A-0-ILPE.jpg
+[2024-10-25 16:17:16] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041716389_N/A-0-ILPE.jpg
+[2024-10-25 16:17:16] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041716754_N/A-0-ILPE.jpg
+[2024-10-25 16:17:18] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041718349_N/A-0-ILPE.jpg
+[2024-10-25 16:17:18] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041718769_N/A-0-ILPE.jpg
+[2024-10-25 16:17:20] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041720370_N/A-0-ILPE.jpg
+[2024-10-25 16:17:20] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041720794_N/A-0-ILPE.jpg
+[2024-10-25 16:17:22] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041722400_N/A-0-ILPE.jpg
+[2024-10-25 16:17:22] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041722758_N/A-0-ILPE.jpg
+[2024-10-25 16:17:24] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041724363_N/A-0-ILPE.jpg
+[2024-10-25 16:17:24] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041724783_N/A-0-ILPE.jpg
+[2024-10-25 16:17:26] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041726512_N/A-0-ILPE.jpg
+[2024-10-25 16:17:26] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041726805_N/A-0-ILPE.jpg
+[2024-10-25 16:17:28] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041728475_N/A-0-ILPE.jpg
+[2024-10-25 16:17:28] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041728896_N/A-0-ILPE.jpg
+[2024-10-25 16:17:30] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041730500_N/A-0-ILPE.jpg
+[2024-10-25 16:17:30] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041730925_N/A-0-ILPE.jpg
+[2024-10-25 16:17:32] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041732526_N/A-0-ILPE.jpg
+[2024-10-25 16:17:32] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041732887_N/A-0-ILPE.jpg
+[2024-10-25 16:17:34] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041734485_N/A-0-ILPE.jpg
+[2024-10-25 16:17:34] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041734909_N/A-0-ILPE.jpg
+[2024-10-25 16:17:36] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041736515_N/A-0-ILPE.jpg
+[2024-10-25 16:17:36] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041736932_N/A-0-ILPE.jpg
+[2024-10-25 16:17:38] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041738537_N/A-0-ILPE.jpg
+[2024-10-25 16:17:38] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041738893_N/A-0-ILPE.jpg
+[2024-10-25 16:17:40] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041740498_N/A-0-ILPE.jpg
+[2024-10-25 16:17:40] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041740985_N/A-0-ILPE.jpg
+[2024-10-25 16:17:42] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041742526_N/A-0-ILPE.jpg
+[2024-10-25 16:17:43] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T04174307_N/A-0-ILPE.jpg
+[2024-10-25 16:17:44] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041744549_N/A-0-ILPE.jpg
+[2024-10-25 16:17:45] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T04174541_N/A-0-ILPE.jpg
+[2024-10-25 16:17:46] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041746507_N/A-0-ILPE.jpg
+[2024-10-25 16:17:47] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T04174764_N/A-0-ILPE.jpg
+[2024-10-25 16:17:48] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041748534_N/A-0-ILPE.jpg
+[2024-10-25 16:17:49] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T04174921_N/A-0-ILPE.jpg
+[2024-10-25 16:17:50] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041750623_N/A-0-ILPE.jpg
+[2024-10-25 16:17:51] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041751170_N/A-0-ILPE.jpg
+[2024-10-25 16:17:52] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041752648_N/A-0-ILPE.jpg
+[2024-10-25 16:17:53] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041753139_N/A-0-ILPE.jpg
+[2024-10-25 16:17:54] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041754675_N/A-0-ILPE.jpg
+[2024-10-25 16:17:55] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041755156_N/A-0-ILPE.jpg
+[2024-10-25 16:17:55] [General - NetworkManager] [WARN] Unexpected connection  active on end1. Expected static-end1
+[2024-10-25 16:17:55] [General - NetworkManager] [INFO] Reinitializing
+[2024-10-25 16:17:55] [General - ShellExec] [DEBUG] Executing "nmcli -t -f GENERAL.CONNECTION,GENERAL.DEVICE,GENERAL.TYPE device show"
+[2024-10-25 16:17:55] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 16:17:55] [General - NetworkUtils] [DEBUG] Found network interfaces: [NMDeviceInfo [connName=static-end1, devName=end1, nmType=NMTYPE_ETHERNET]]
+[2024-10-25 16:17:55] [General - NetworkManager] [INFO] Setting STATIC with team 1736 on end1
+[2024-10-25 16:17:55] [General - ShellExec] [DEBUG] Executing "cat /etc/hostname | tr -d " \t\n\r""
+[2024-10-25 16:17:55] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 16:17:55] [General - NetworkManager] [DEBUG] Old host name: "photonvision"
+[2024-10-25 16:17:55] [General - NetworkManager] [DEBUG] New host name: "photonvision"
+[2024-10-25 16:17:55] [General - NetworkManager] [INFO] Updating the Static connection static-end1
+[2024-10-25 16:17:55] [General - ShellExec] [DEBUG] Executing "nmcli connection modify static-end1 autoconnect yes ipv4.method manual ipv6.method disabled ipv4.addresses 10.17.36.15/8 ipv4.gateway 10.17.36.1 "
+[2024-10-25 16:17:56] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 16:17:56] [General - NetworkManager] [INFO] Activating the Static connection static-end1
+[2024-10-25 16:17:56] [General - ShellExec] [DEBUG] Executing "nmcli connection up "static-end1""
+[2024-10-25 16:17:56] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 16:17:56] [WebServer - Server] [INFO] Web server going down for restart
+[2024-10-25 16:17:56] [WebServer - DataSocketHandler] [INFO] Closing websockets for user 95494b07-0f63-4381-a09b-17002d45face
+[2024-10-25 16:17:56] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1182_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:17:56] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1181_Input_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:17:56] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041756760_N/A-0-ILPE.jpg
+[2024-10-25 16:17:57] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041757186_N/A-0-ILPE.jpg
+[2024-10-25 16:17:57] [WebServer - DataSocketHandler] [INFO] New websocket connection from /10.17.36.200:62918
+[2024-10-25 16:17:57] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1182_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:17:57] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1181_Input_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:17:57] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1182_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:17:57] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1182_Output_MJPEG_Server: command parameters: "" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:17:57] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1181_Input_MJPEG_Server: HTTP request: 'GET /stream.mjpg HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:17:57] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1181_Input_MJPEG_Server: command parameters: "" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:17:57] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1182_Output_MJPEG_Server: request for stream photonvision_Port_1182_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:17:57] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1182_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:17:57] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1181_Input_MJPEG_Server: request for stream photonvision_Port_1181_Input_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:17:57] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1181_Input_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:17:58] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041758725_N/A-0-ILPE.jpg
+[2024-10-25 16:17:59] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041759152_N/A-0-ILPE.jpg
+[2024-10-25 16:18:00] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041800748_N/A-0-ILPE.jpg
+[2024-10-25 16:18:01] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041801172_N/A-0-ILPE.jpg
+[2024-10-25 16:18:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:18:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504595712 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:18:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504595712" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:18:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:18:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:18:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:18:02] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041802835_N/A-0-ILPE.jpg
+[2024-10-25 16:18:03] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041803132_N/A-0-ILPE.jpg
+[2024-10-25 16:18:04] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041804861_N/A-0-ILPE.jpg
+[2024-10-25 16:18:05] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041805160_N/A-0-ILPE.jpg
+[2024-10-25 16:18:06] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041806886_N/A-0-ILPE.jpg
+[2024-10-25 16:18:07] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041807247_N/A-0-ILPE.jpg
+[2024-10-25 16:18:08] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041808848_N/A-0-ILPE.jpg
+[2024-10-25 16:18:09] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041809269_N/A-0-ILPE.jpg
+[2024-10-25 16:18:09] [WebServer - Server] [DEBUG] Handled HTTP request of type GET from endpoint /index.html of req size -1 bytes & type null with return code 304 for host 10.17.36.200 in 0.641375 ms
+[2024-10-25 16:18:09] [WebServer - Server] [DEBUG] Handled HTTP request of type GET from endpoint / of req size -1 bytes & type null with return code 304 for host 10.17.36.200 in 1.637709 ms
+[2024-10-25 16:18:09] [WebServer - DataSocketHandler] [INFO] Closing websocket connection from /10.17.36.200:62918 for reason: Connection closed by client
+[2024-10-25 16:18:09] [WebServer - Server] [DEBUG] Handled HTTP request of type GET from endpoint /assets/index-Bnr8jAW6.js of req size -1 bytes & type null with return code 304 for host 10.17.36.200 in 1.089375 ms
+[2024-10-25 16:18:09] [WebServer - Server] [DEBUG] Handled HTTP request of type GET from endpoint /assets/index-C7-j6cdu.css of req size -1 bytes & type null with return code 304 for host 10.17.36.200 in 0.922833 ms
+[2024-10-25 16:18:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1182_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:18:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1181_Input_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:18:10] [WebServer - DataSocketHandler] [INFO] New websocket connection from /10.17.36.200:62927
+[2024-10-25 16:18:10] [General - ShellExec] [DEBUG] Executing "nmcli -t -f GENERAL.CONNECTION,GENERAL.DEVICE,GENERAL.TYPE device show"
+[2024-10-25 16:18:10] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 16:18:10] [General - NetworkUtils] [DEBUG] Found network interfaces: [NMDeviceInfo [connName=static-end1, devName=end1, nmType=NMTYPE_ETHERNET]]
+[2024-10-25 16:18:10] [WebServer - Server] [DEBUG] Handled HTTP request of type GET from endpoint /assets/logoLarge-Blny0AlQ.svg of req size -1 bytes & type null with return code 304 for host 10.17.36.200 in 0.715458 ms
+[2024-10-25 16:18:10] [WebServer - Server] [DEBUG] Handled HTTP request of type GET from endpoint /assets/loading-transparent-M6bk-DXt.svg of req size -1 bytes & type null with return code 304 for host 10.17.36.200 in 1.573542 ms
+[2024-10-25 16:18:10] [WebServer - Server] [DEBUG] Handled HTTP request of type GET from endpoint /assets/prompt-latin-400-normal-CyXKtQGK.woff2 of req size -1 bytes & type null with return code 304 for host 10.17.36.200 in 0.841458 ms
+[2024-10-25 16:18:10] [WebServer - Server] [DEBUG] Handled HTTP request of type GET from endpoint /assets/materialdesignicons-webfont-Dp5v-WZN.woff2 of req size -1 bytes & type null with return code 304 for host 10.17.36.200 in 0.930708 ms
+[2024-10-25 16:18:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1181_Input_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:18:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1182_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:18:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1181_Input_MJPEG_Server: HTTP request: 'GET /stream.mjpg HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:18:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1181_Input_MJPEG_Server: command parameters: "" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:18:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1182_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:18:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1182_Output_MJPEG_Server: command parameters: "" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:18:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1181_Input_MJPEG_Server: request for stream photonvision_Port_1181_Input_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:18:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1181_Input_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:18:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1182_Output_MJPEG_Server: request for stream photonvision_Port_1182_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:18:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1182_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:18:10] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041810875_N/A-0-ILPE.jpg
+[2024-10-25 16:18:11] [WebServer - Server] [DEBUG] Handled HTTP request of type GET from endpoint /favicon.ico of req size -1 bytes & type null with return code 200 for host 10.17.36.200 in 5.425 ms
+[2024-10-25 16:18:11] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041811294_N/A-0-ILPE.jpg
+[2024-10-25 16:18:12] [WebServer - Server] [DEBUG] Handled HTTP request of type GET from endpoint /api/utils/getImageSnapshots of req size -1 bytes & type null with return code 500 for host 10.17.36.200 in 287.02805 ms
+[2024-10-25 16:18:12] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041812898_N/A-0-ILPE.jpg
+[2024-10-25 16:18:13] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041813324_N/A-0-ILPE.jpg
+[2024-10-25 16:18:14] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041814861_N/A-0-ILPE.jpg
+[2024-10-25 16:18:15] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041815281_N/A-0-ILPE.jpg
+[2024-10-25 16:18:15] [WebServer - Server] [DEBUG] Handled HTTP request of type GET from endpoint /api/utils/getImageSnapshots of req size -1 bytes & type null with return code 500 for host 10.17.36.200 in 239.91687 ms
+[2024-10-25 16:18:17] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T04181715_N/A-0-ILPE.jpg
+[2024-10-25 16:18:17] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041817304_N/A-0-ILPE.jpg
+[2024-10-25 16:18:18] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041818976_N/A-0-ILPE.jpg
+[2024-10-25 16:18:19] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041819397_N/A-0-ILPE.jpg
+[2024-10-25 16:18:20] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041820999_N/A-0-ILPE.jpg
+[2024-10-25 16:18:21] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041821423_N/A-0-ILPE.jpg
+[2024-10-25 16:18:23] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T04182323_N/A-0-ILPE.jpg
+[2024-10-25 16:18:23] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041823384_N/A-0-ILPE.jpg
+[2024-10-25 16:18:24] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041824990_N/A-0-ILPE.jpg
+[2024-10-25 16:18:25] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041825538_N/A-0-ILPE.jpg
+[2024-10-25 16:18:27] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T04182717_N/A-0-ILPE.jpg
+[2024-10-25 16:18:27] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041827503_N/A-0-ILPE.jpg
+[2024-10-25 16:18:29] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041829101_N/A-0-ILPE.jpg
+[2024-10-25 16:18:29] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041829524_N/A-0-ILPE.jpg
+[2024-10-25 16:18:31] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041831126_N/A-0-ILPE.jpg
+[2024-10-25 16:18:31] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041831483_N/A-0-ILPE.jpg
+[2024-10-25 16:18:33] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T04183388_N/A-0-ILPE.jpg
+[2024-10-25 16:18:33] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041833507_N/A-0-ILPE.jpg
+[2024-10-25 16:18:35] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041835113_N/A-0-ILPE.jpg
+[2024-10-25 16:18:35] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041835600_N/A-0-ILPE.jpg
+[2024-10-25 16:18:37] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041837200_N/A-0-ILPE.jpg
+[2024-10-25 16:18:37] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041837625_N/A-0-ILPE.jpg
+[2024-10-25 16:18:39] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041839225_N/A-0-ILPE.jpg
+[2024-10-25 16:18:39] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041839646_N/A-0-ILPE.jpg
+[2024-10-25 16:18:41] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041841249_N/A-0-ILPE.jpg
+[2024-10-25 16:18:41] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041841612_N/A-0-ILPE.jpg
+[2024-10-25 16:18:43] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041843211_N/A-0-ILPE.jpg
+[2024-10-25 16:18:43] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041843704_N/A-0-ILPE.jpg
+[2024-10-25 16:18:45] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041845300_N/A-0-ILPE.jpg
+[2024-10-25 16:18:45] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041845730_N/A-0-ILPE.jpg
+[2024-10-25 16:18:47] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041847322_N/A-0-ILPE.jpg
+[2024-10-25 16:18:47] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041847750_N/A-0-ILPE.jpg
+[2024-10-25 16:18:49] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041849348_N/A-0-ILPE.jpg
+[2024-10-25 16:18:49] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041849835_N/A-0-ILPE.jpg
+[2024-10-25 16:18:51] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041851311_N/A-0-ILPE.jpg
+[2024-10-25 16:18:51] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041851868_N/A-0-ILPE.jpg
+[2024-10-25 16:18:53] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041853336_N/A-0-ILPE.jpg
+[2024-10-25 16:18:53] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041853825_N/A-0-ILPE.jpg
+[2024-10-25 16:18:55] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041855426_N/A-0-ILPE.jpg
+[2024-10-25 16:18:55] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041855849_N/A-0-ILPE.jpg
+[2024-10-25 16:18:57] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041857448_N/A-0-ILPE.jpg
+[2024-10-25 16:18:57] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041857816_N/A-0-ILPE.jpg
+[2024-10-25 16:18:59] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041859476_N/A-0-ILPE.jpg
+[2024-10-25 16:18:59] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041859834_N/A-0-ILPE.jpg
+[2024-10-25 16:19:01] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041901439_N/A-0-ILPE.jpg
+[2024-10-25 16:19:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:19:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504655719 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:19:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504655719" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:19:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:19:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:19:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:19:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:19:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:19:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:19:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:19:01] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041901862_N/A-0-ILPE.jpg
+[2024-10-25 16:19:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:19:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:19:03] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041903461_N/A-0-ILPE.jpg
+[2024-10-25 16:19:03] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:19:03] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504657717 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:19:03] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504657717" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:19:03] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:19:03] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:19:03] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:19:03] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041903949_N/A-0-ILPE.jpg
+[2024-10-25 16:19:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:19:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504658722 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:19:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504658722" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:19:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:19:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:19:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:19:05] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041905488_N/A-0-ILPE.jpg
+[2024-10-25 16:19:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:19:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504659711 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:19:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504659711" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:19:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:19:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:19:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:19:05] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041905979_N/A-0-ILPE.jpg
+[2024-10-25 16:19:06] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:19:06] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504660721 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:19:06] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504660721" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:19:06] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:19:06] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:19:06] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 16:19:07] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041907576_N/A-0-ILPE.jpg
+[2024-10-25 16:19:07] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041907934_N/A-0-ILPE.jpg
+[2024-10-25 16:19:09] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041909538_N/A-0-ILPE.jpg
+[2024-10-25 16:19:09] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041909960_N/A-0-ILPE.jpg
+[2024-10-25 16:19:11] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041911564_N/A-0-ILPE.jpg
+[2024-10-25 16:19:11] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041911995_N/A-0-ILPE.jpg
+[2024-10-25 16:19:13] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041913587_N/A-0-ILPE.jpg
+[2024-10-25 16:19:14] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T04191477_N/A-0-ILPE.jpg
+[2024-10-25 16:19:15] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041915553_N/A-0-ILPE.jpg
+[2024-10-25 16:19:16] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T04191698_N/A-0-ILPE.jpg
+[2024-10-25 16:19:17] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041917705_N/A-0-ILPE.jpg
+[2024-10-25 16:19:18] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T04191862_N/A-0-ILPE.jpg
+[2024-10-25 16:19:19] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041919662_N/A-0-ILPE.jpg
+[2024-10-25 16:19:20] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041920155_N/A-0-ILPE.jpg
+[2024-10-25 16:19:21] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041921687_N/A-0-ILPE.jpg
+[2024-10-25 16:19:22] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041922176_N/A-0-ILPE.jpg
+[2024-10-25 16:19:23] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041923714_N/A-0-ILPE.jpg
+[2024-10-25 16:19:24] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041924199_N/A-0-ILPE.jpg
+[2024-10-25 16:19:25] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041925675_N/A-0-ILPE.jpg
+[2024-10-25 16:19:26] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041926291_N/A-0-ILPE.jpg
+[2024-10-25 16:19:27] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041927764_N/A-0-ILPE.jpg
+[2024-10-25 16:19:28] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041928311_N/A-0-ILPE.jpg
+[2024-10-25 16:19:29] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041929789_N/A-0-ILPE.jpg
+[2024-10-25 16:19:30] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041930275_N/A-0-ILPE.jpg
+[2024-10-25 16:19:31] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041931816_N/A-0-ILPE.jpg
+[2024-10-25 16:19:32] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041932298_N/A-0-ILPE.jpg
+[2024-10-25 16:19:33] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041933780_N/A-0-ILPE.jpg
+[2024-10-25 16:19:34] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/3b4a42f3-57f7-49b3-a4c5-266a62aada95/ACAM2_output_2024-10-25T041934322_N/A-0-ILPE.jpg
+[2024-10-25 16:19:35] [General - FileSaveFrameConsumer] [INFO] Saved new image at /opt/photonvision/photonvision_config/imgSaves/f2a3434b-e18e-4fed-8027-b836e973bde0/ACAM3_output_2024-10-25T041935800_N/A-0-ILPE.jpg
+[2024-10-25 16:19:36] [NetworkTables - NetworkTablesManager] [INFO] NT: INFO 20: DISCONNECTED NT4 connection: stream error: ECONNRESET (NetworkClient.cpp:468)
+[2024-10-25 16:19:36] [NetworkTables - NetworkTablesManager] [ERROR] NT lost connection to 10.17.36.2:5810! (NT version 1025). Will retry in background.
+[2024-10-25 16:19:46] [NetworkTables - NetworkTablesManager] [INFO] NT: INFO 20: CONNECTED NT4 to 10.17.36.2 port 5810 (NetworkClient.cpp:413)
+[2024-10-25 16:19:46] [NetworkTables - NetworkTablesManager] [INFO] NT connected to 10.17.36.2:5810! (NT version 1025)
+[2024-10-25 16:19:46] [General - ScriptManager] [INFO] Queued event: kNTConnected
+[2024-10-25 16:19:46] [NetworkTables - TimeSyncManager] [DEBUG] NT (re)connected -- restarting Time Sync Client at 10.17.36.2:5810
+[2024-10-25 16:20:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 16:20:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742504715720 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 16:20:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742504715720" (MjpegServerImpl.cpp:854)
+[2024-10-25 16:20:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 16:20:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 16:20:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)

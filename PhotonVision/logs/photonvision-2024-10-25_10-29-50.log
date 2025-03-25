@@ -1,0 +1,1468 @@
+[2024-10-25 10:29:51] [General - Main] [INFO] Starting PhotonVision version v2025.1.1 on platform Linux AARCH 64-bit with RK3588
+[2024-10-25 10:29:51] [General - Main] [INFO] PhotonVision image version: v2025.0.3;opi5
+[2024-10-25 10:29:54] [General - Main] [INFO] WPI JNI libraries loaded.
+[2024-10-25 10:29:54] [General - Main] [INFO] photon-targeting JNI libraries loaded.
+[2024-10-25 10:29:54] [Camera - RknnDetectorJNI] [INFO] Successfully loaded shared object librga.so
+[2024-10-25 10:29:54] [Camera - RknnDetectorJNI] [INFO] Successfully loaded shared object librknnrt.so
+[2024-10-25 10:29:54] [Camera - RknnDetectorJNI] [INFO] Successfully loaded shared object librknn_jni.so
+[2024-10-25 10:29:55] [Camera - RknnDetectorJNI] [INFO] Successfully loaded shared object libmrcal_jni.so
+[2024-10-25 10:29:55] [General - Main] [INFO] Logging initialized in debug mode.
+[2024-10-25 10:29:55] [General - Main] [DEBUG] Loading ConfigManager...
+[2024-10-25 10:29:55] [Config - SqlConfigProvider] [DEBUG] Using database /opt/photonvision/photonvision_config/photon.sqlite
+[2024-10-25 10:29:55] [Config - SqlConfigProvider] [INFO] Using correct database version: 2
+[2024-10-25 10:29:55] [Config - SqlConfigProvider] [DEBUG] Loading config...
+[2024-10-25 10:29:55] [Config - SqlConfigProvider] [ERROR] Could not deserialize apriltag layout! Loading defaults: Provided empty string for class edu.wpi.first.apriltag.AprilTagFieldLayout
+[2024-10-25 10:29:55] [Config - SqlConfigProvider] [ERROR] org.eclipse.jetty.io.EofException: Provided empty string for class edu.wpi.first.apriltag.AprilTagFieldLayout
+	at org.photonvision.common.util.file.JacksonUtils.deserialize(JacksonUtils.java:81)
+	at org.photonvision.common.configuration.SqlConfigProvider.load(SqlConfigProvider.java:296)
+	at org.photonvision.common.configuration.ConfigManager.load(ConfigManager.java:192)
+	at org.photonvision.Main.main(Main.java:267)
+
+[2024-10-25 10:29:56] [General - KernelLogLogger] [DEBUG] 2024-10-25T10:29:55.080928+00:00 photonvision kernel: rk_gmac-dwmac fe1c0000.ethernet end1: Link is Up - 100Mbps/Full - flow control rx/tx
+[2024-10-25 10:29:56] [General - KernelLogLogger] [DEBUG] 2024-10-25T10:29:55.080937+00:00 photonvision kernel: IPv6: ADDRCONF(NETDEV_CHANGE): end1: link becomes ready
+[2024-10-25 10:29:56] [General - KernelLogLogger] [DEBUG] 2024-10-25T10:29:56.040780+00:00 photonvision kernel: platform mtd_vendor_storage: deferred probe pending
+[2024-10-25 10:29:56] [General - Main] [INFO] Loading ML models...
+[2024-10-25 10:29:56] [Config - NeuralNetworkModelManager] [INFO] Skipping extraction of DNN resource: models/note-640-640-yolov5s.rknn
+[2024-10-25 10:29:56] [Config - NeuralNetworkModelManager] [INFO] Skipping extraction of DNN resource: models/note-640-640-yolov5s-labels.txt
+[2024-10-25 10:29:56] [Config - NeuralNetworkModelManager] [INFO] Supported backends: [RKNN]
+[2024-10-25 10:29:56] [Config - NeuralNetworkModelManager] [INFO] Loaded model note-640-640-yolov5s.rknn for backend RKNN
+[2024-10-25 10:29:56] [General - Main] [DEBUG] Loading HardwareManager...
+[2024-10-25 10:29:56] [NetworkTables - TimeSyncManager] [DEBUG] Starting TimeSyncClient on localhost (for now)
+[2024-10-25 10:29:56] [General - Main] [DEBUG] Loading NetworkManager...
+[2024-10-25 10:29:56] [General - ShellExec] [DEBUG] Executing "id -u"
+[2024-10-25 10:29:56] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:29:56] [General - ShellExec] [DEBUG] Executing "nmcli -t -f GENERAL.CONNECTION,GENERAL.DEVICE,GENERAL.TYPE device show"
+[2024-10-25 10:29:56] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:29:56] [General - NetworkUtils] [DEBUG] Found network interfaces: [NMDeviceInfo [connName=static-end1, devName=end1, nmType=NMTYPE_ETHERNET]]
+[2024-10-25 10:29:56] [General - NetworkManager] [DEBUG] Watching network interface at path: /sys/class/net/end1/carrier
+[2024-10-25 10:29:56] [General - NetworkManager] [INFO] Setting STATIC with team 1736 on end1
+[2024-10-25 10:29:56] [General - ShellExec] [DEBUG] Executing "cat /etc/hostname | tr -d " \t\n\r""
+[2024-10-25 10:29:56] [General - NetworkManager] [INFO] Interface end1 has address(es): [/10.17.36.15/8 [/10.255.255.255]]
+[2024-10-25 10:29:56] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:29:56] [General - NetworkManager] [DEBUG] Old host name: "photonvision"
+[2024-10-25 10:29:56] [General - NetworkManager] [DEBUG] New host name: "photonvision"
+[2024-10-25 10:29:56] [General - NetworkManager] [INFO] Updating the Static connection static-end1
+[2024-10-25 10:29:56] [General - ShellExec] [DEBUG] Executing "nmcli connection modify static-end1 autoconnect yes ipv4.method manual ipv6.method disabled ipv4.addresses 10.17.36.15/8 ipv4.gateway 10.17.36.1 "
+[2024-10-25 10:29:57] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:29:57] [General - NetworkManager] [INFO] Activating the Static connection static-end1
+[2024-10-25 10:29:57] [General - ShellExec] [DEBUG] Executing "nmcli connection up "static-end1""
+[2024-10-25 10:29:57] [Config - ConfigManager] [DEBUG] Saving to disk...
+[2024-10-25 10:29:57] [Config - SqlConfigProvider] [DEBUG] Saving to disk
+[2024-10-25 10:29:57] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:29:57] [General - Main] [DEBUG] Loading NetworkTablesManager...
+[2024-10-25 10:29:57] [NetworkTables - NetworkTablesManager] [INFO] Starting NT Client, server team is 1736
+[2024-10-25 10:29:57] [NetworkTables - NetworkTablesManager] [INFO] NT: INFO 20: starting network client (NetworkClient.cpp:46)
+[2024-10-25 10:29:57] [General - Main] [DEBUG] Loading VisionSourceManager...
+[2024-10-25 10:29:57] [NetworkTables - NetworkTablesManager] [INFO] Starting NT Client, server team is 1736
+[2024-10-25 10:29:57] [Camera - VisionSourceManager] [INFO] Registering loaded camera configs
+[2024-10-25 10:29:57] [NetworkTables - NetworkTablesManager] [ERROR] [NetworkTablesManager] Could not connect to the robot! Will retry in the background...
+[2024-10-25 10:29:57] [Camera - VisionSourceManager] [DEBUG] Creating VisionSource for CameraConfiguration [uniqueName=3b4a42f3-57f7-49b3-a4c5-266a62aada95, matchedCameraInfo=PVUsbCameraInfo[type=UsbCamera, dev=0, path='/dev/video0', name='ACAM4', otherPaths=[/dev/v4l/by-id/usb-Arducam_Technology_Co.__Ltd._ACAM4_1736.4-video-index0, /dev/v4l/by-path/platform-fc880000.usb-usbv2-0:1:1.0-video-index0, /dev/v4l/by-path/platform-fc880000.usb-usb-0:1:1.0-video-index0], vid=3141, pid=25446, uniquePath='/dev/v4l/by-path/platform-fc880000.usb-usb-0:1:1.0-video-index0'], nickname=ACAM2, deactivated=false, cameraQuirks=QuirkyCamera [baseName=ACAM4, displayName=, usbVid=3141, usbPid=25446, quirks={AwbRedBlueGain=false, See3Cam_24CUG=false, FPSCap100=false, PsEyeControls=false, LifeCamControls=false, AdjustableFocus=false, ArduOV2311Controls=false, ArduOV9782=false, InnoOV9281Controls=false, ArduOV9782Controls=true, StickyFPS=true, Gain=true, CompletelyBroken=false, ArduCamCamera=true, ArduOV9281Controls=false}], FOV=70.0]
+[2024-10-25 10:29:57] [Camera - USBCameraSource - ACAM2] [INFO] Quirky camera detected: QuirkyCamera [baseName=ACAM4, displayName=, usbVid=3141, usbPid=25446, quirks={AwbRedBlueGain=false, See3Cam_24CUG=false, FPSCap100=false, PsEyeControls=false, LifeCamControls=false, AdjustableFocus=false, ArduOV2311Controls=false, ArduOV9782=false, InnoOV9281Controls=false, ArduOV9782Controls=true, StickyFPS=true, Gain=true, CompletelyBroken=false, ArduCamCamera=true, ArduOV9281Controls=false}]
+[2024-10-25 10:29:57] [CSCore - PvCSCoreLogger] [INFO] ACAM2: Attempting to connect to USB camera on /dev/v4l/by-path/platform-fc880000.usb-usb-0:1:1.0-video-index0
+[2024-10-25 10:29:57] [Camera - USBCameraSource - ACAM2] [DEBUG] Using Arducam OV9782 Settables
+[2024-10-25 10:29:57] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: opening device (UsbCameraImpl.cpp:651)
+[2024-10-25 10:29:57] [Camera - USBCameraSource - ACAM2] [INFO] Created settables org.photonvision.vision.camera.USBCameras.ArduOV9782CameraSettables@d2de489
+[2024-10-25 10:29:57] [VisionModule - PipelineManager] [DEBUG] Creating AprilTag pipeline
+[2024-10-25 10:29:57] [CSCore - PvCSCoreLogger] [INFO] ACAM2: Connected to USB camera on /dev/v4l/by-path/platform-fc880000.usb-usb-0:1:1.0-video-index0
+[2024-10-25 10:29:57] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: getting capabilities (UsbCameraImpl.cpp:663)
+[2024-10-25 10:29:57] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: caching properties (UsbCameraImpl.cpp:675)
+[2024-10-25 10:29:57] [CSCore - PvCSCoreLogger] [INFO] ACAM2: set format 1 res 320x240
+[2024-10-25 10:29:57] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: allocating buffers (UsbCameraImpl.cpp:701)
+[2024-10-25 10:29:57] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: mapping buffers (UsbCameraImpl.cpp:715)
+[2024-10-25 10:29:57] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: queuing buffers (UsbCameraImpl.cpp:765)
+[2024-10-25 10:29:58] [Config - SqlConfigProvider] [INFO] Settings saved!
+[2024-10-25 10:29:58] [WebServer - DataChangeService] [DEBUG] Added subscriber - Sources: DCS_WEBSOCKET, DCS_HTTP, DCS_NETWORKTABLES, DCS_VISIONMODULE, DCS_OTHER, Destinations: DCD_ACTIVEMODULE, DCD_ACTIVEPIPELINESETTINGS, DCD_GENSETTINGS, DCD_UI, DCD_WEBSERVER, DCD_OTHER
+[2024-10-25 10:29:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1181_Input_MJPEG_Server: waiting for clients to connect (MjpegServerImpl.cpp:946)
+[2024-10-25 10:29:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1182_Output_MJPEG_Server: waiting for clients to connect (MjpegServerImpl.cpp:946)
+[2024-10-25 10:29:58] [VisionModule - VisionModule - ACAM2] [INFO] Setting pipeline to 0
+[2024-10-25 10:29:58] [VisionModule - VisionModule - ACAM2] [INFO] Pipeline name: New Pipeline
+[2024-10-25 10:29:58] [Camera - USBFrameProvider - ACAM2] [INFO] Camera connected! running callback
+[2024-10-25 10:29:58] [Camera - USBCameraSource - ACAM2] [DEBUG] Cam Properties Dump:
+Name: connect_verbose, Kind: kInteger, Value: 2, Min: 0, Max: 1, Dflt: 1, Step: 1
+Name: , Kind: kNone, Value: 0, Min: 0, Max: 0, Dflt: 0, Step: 0
+Name: raw_brightness, Kind: kInteger, Value: 2, Min: -64, Max: 64, Dflt: 0, Step: 1
+Name: brightness, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: raw_contrast, Kind: kInteger, Value: 2, Min: 0, Max: 64, Dflt: 32, Step: 1
+Name: contrast, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: raw_saturation, Kind: kInteger, Value: 2, Min: 0, Max: 128, Dflt: 90, Step: 1
+Name: saturation, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 70, Step: 1
+Name: raw_hue, Kind: kInteger, Value: 2, Min: -40, Max: 40, Dflt: 0, Step: 1
+Name: hue, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: white_balance_automatic, Kind: kBoolean, Value: 1, Min: 0, Max: 1, Dflt: 1, Step: 1
+Name: gamma, Kind: kInteger, Value: 2, Min: 72, Max: 500, Dflt: 100, Step: 1
+Name: raw_gain, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 0, Step: 1
+Name: gain, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 0, Step: 1
+Name: power_line_frequency, Kind: kEnum, Value: 8, Min: 0, Max: 2, Dflt: 2, Step: 1
+Name: white_balance_temperature, Kind: kInteger, Value: 2, Min: 2800, Max: 6500, Dflt: 4600, Step: 1
+Name: raw_sharpness, Kind: kInteger, Value: 2, Min: 0, Max: 6, Dflt: 3, Step: 1
+Name: sharpness, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: backlight_compensation, Kind: kInteger, Value: 2, Min: 0, Max: 2, Dflt: 1, Step: 1
+Name: auto_exposure, Kind: kEnum, Value: 8, Min: 0, Max: 3, Dflt: 3, Step: 1
+Name: raw_exposure_time_absolute, Kind: kInteger, Value: 2, Min: 1, Max: 5000, Dflt: 157, Step: 1
+Name: exposure_time_absolute, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 3, Step: 1
+Name: exposure_dynamic_framerate, Kind: kBoolean, Value: 1, Min: 0, Max: 1, Dflt: 0, Step: 1
+
+[2024-10-25 10:29:58] [Camera - VisionSourceManager] [DEBUG] Creating VisionSource for CameraConfiguration [uniqueName=f2a3434b-e18e-4fed-8027-b836e973bde0, matchedCameraInfo=PVUsbCameraInfo[type=UsbCamera, dev=2, path='/dev/video2', name='ACAM1', otherPaths=[/dev/v4l/by-id/usb-Arducam_Technology_Co.__Ltd._ACAM1_1736.1-video-index0, /dev/v4l/by-path/platform-fc800000.usb-usbv2-0:1:1.0-video-index0, /dev/v4l/by-path/platform-fc800000.usb-usb-0:1:1.0-video-index0], vid=3141, pid=25446, uniquePath='/dev/v4l/by-path/platform-fc800000.usb-usb-0:1:1.0-video-index0'], nickname=ACAM3, deactivated=false, cameraQuirks=QuirkyCamera [baseName=ACAM1, displayName=, usbVid=3141, usbPid=25446, quirks={AwbRedBlueGain=false, See3Cam_24CUG=false, FPSCap100=false, PsEyeControls=false, LifeCamControls=false, AdjustableFocus=false, ArduOV2311Controls=false, ArduOV9782=false, InnoOV9281Controls=false, ArduOV9782Controls=true, StickyFPS=true, Gain=true, CompletelyBroken=false, ArduCamCamera=true, ArduOV9281Controls=false}], FOV=70.0]
+[2024-10-25 10:29:58] [VisionModule - VisionSourceSettables - ACAM2] [INFO] Caching cscore properties
+[2024-10-25 10:29:58] [Camera - USBCameraSource - ACAM3] [INFO] Quirky camera detected: QuirkyCamera [baseName=ACAM1, displayName=, usbVid=3141, usbPid=25446, quirks={AwbRedBlueGain=false, See3Cam_24CUG=false, FPSCap100=false, PsEyeControls=false, LifeCamControls=false, AdjustableFocus=false, ArduOV2311Controls=false, ArduOV9782=false, InnoOV9281Controls=false, ArduOV9782Controls=true, StickyFPS=true, Gain=true, CompletelyBroken=false, ArduCamCamera=true, ArduOV9281Controls=false}]
+[2024-10-25 10:29:58] [Camera - USBCameraSource - ACAM3] [DEBUG] Using Arducam OV9782 Settables
+[2024-10-25 10:29:58] [Camera - USBCameraSource - ACAM3] [INFO] Created settables org.photonvision.vision.camera.USBCameras.ArduOV9782CameraSettables@291f18
+[2024-10-25 10:29:58] [CSCore - PvCSCoreLogger] [INFO] ACAM3: Attempting to connect to USB camera on /dev/v4l/by-path/platform-fc800000.usb-usb-0:1:1.0-video-index0
+[2024-10-25 10:29:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: opening device (UsbCameraImpl.cpp:651)
+[2024-10-25 10:29:58] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] No property exposure_metering_mode for ACAM2 , skipping.
+[2024-10-25 10:29:58] [CSCore - PvCSCoreLogger] [INFO] ACAM3: Connected to USB camera on /dev/v4l/by-path/platform-fc800000.usb-usb-0:1:1.0-video-index0
+[2024-10-25 10:29:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: getting capabilities (UsbCameraImpl.cpp:663)
+[2024-10-25 10:29:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: caching properties (UsbCameraImpl.cpp:675)
+[2024-10-25 10:29:58] [CSCore - PvCSCoreLogger] [INFO] ACAM3: set format 1 res 320x240
+[2024-10-25 10:29:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: allocating buffers (UsbCameraImpl.cpp:701)
+[2024-10-25 10:29:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: mapping buffers (UsbCameraImpl.cpp:715)
+[2024-10-25 10:29:58] [VisionModule - PipelineManager] [DEBUG] Creating AprilTag pipeline
+[2024-10-25 10:29:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: queuing buffers (UsbCameraImpl.cpp:765)
+[2024-10-25 10:29:58] [WebServer - DataChangeService] [DEBUG] Added subscriber - Sources: DCS_WEBSOCKET, DCS_HTTP, DCS_NETWORKTABLES, DCS_VISIONMODULE, DCS_OTHER, Destinations: DCD_ACTIVEMODULE, DCD_ACTIVEPIPELINESETTINGS, DCD_GENSETTINGS, DCD_UI, DCD_WEBSERVER, DCD_OTHER
+[2024-10-25 10:29:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1184_Output_MJPEG_Server: waiting for clients to connect (MjpegServerImpl.cpp:946)
+[2024-10-25 10:29:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1183_Input_MJPEG_Server: waiting for clients to connect (MjpegServerImpl.cpp:946)
+[2024-10-25 10:29:58] [VisionModule - VisionModule - ACAM3] [INFO] Setting pipeline to 0
+[2024-10-25 10:29:58] [VisionModule - VisionModule - ACAM3] [INFO] Pipeline name: New Pipeline
+[2024-10-25 10:29:58] [Camera - VisionSourceManager] [DEBUG] Creating VisionSource for CameraConfiguration [uniqueName=755f5b1f-c8cd-4120-b38d-5793b48f9ea9, matchedCameraInfo=PVUsbCameraInfo[type=UsbCamera, dev=4, path='/dev/video4', name='Arducam OV9782 USB Camera', otherPaths=[/dev/v4l/by-id/usb-Arducam_Technology_Co.__Ltd._Arducam_OV9782_USB_Camera_UC852-video-index0, /dev/v4l/by-path/platform-xhci-hcd.11.auto-usbv2-0:1:1.0-video-index0, /dev/v4l/by-path/platform-xhci-hcd.11.auto-usb-0:1:1.0-video-index0], vid=3141, pid=25446, uniquePath='/dev/v4l/by-path/platform-xhci-hcd.11.auto-usb-0:1:1.0-video-index0'], nickname=Arducam_OV9782_USB_Camera, deactivated=false, cameraQuirks=QuirkyCamera [baseName=Arducam OV9782 USB Camera, displayName=, usbVid=3141, usbPid=25446, quirks={AwbRedBlueGain=false, See3Cam_24CUG=false, FPSCap100=false, PsEyeControls=false, LifeCamControls=false, AdjustableFocus=false, ArduOV2311Controls=false, ArduOV9782=false, InnoOV9281Controls=false, ArduOV9782Controls=false, Gain=true, StickyFPS=true, CompletelyBroken=false, ArduCamCamera=true, ArduOV9281Controls=false}], FOV=70.0]
+[2024-10-25 10:29:58] [Camera - USBFrameProvider - ACAM3] [INFO] Camera connected! running callback
+[2024-10-25 10:29:58] [Camera - USBCameraSource - Arducam_OV9782_USB_Camera] [INFO] Quirky camera detected: QuirkyCamera [baseName=Arducam OV9782 USB Camera, displayName=, usbVid=3141, usbPid=25446, quirks={AwbRedBlueGain=false, See3Cam_24CUG=false, FPSCap100=false, PsEyeControls=false, LifeCamControls=false, AdjustableFocus=false, ArduOV2311Controls=false, ArduOV9782=false, InnoOV9281Controls=false, ArduOV9782Controls=false, Gain=true, StickyFPS=true, CompletelyBroken=false, ArduCamCamera=true, ArduOV9281Controls=false}]
+[2024-10-25 10:29:58] [Camera - USBCameraSource - Arducam_OV9782_USB_Camera] [DEBUG] Using Generic USB Cam Settables
+[2024-10-25 10:29:58] [Camera - USBCameraSource - Arducam_OV9782_USB_Camera] [INFO] Created settables org.photonvision.vision.camera.USBCameras.GenericUSBCameraSettables@1984b1f
+[2024-10-25 10:29:58] [CSCore - PvCSCoreLogger] [INFO] Arducam_OV9782_USB_Camera: Attempting to connect to USB camera on /dev/v4l/by-path/platform-xhci-hcd.11.auto-usb-0:1:1.0-video-index0
+[2024-10-25 10:29:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: Arducam_OV9782_USB_Camera: opening device (UsbCameraImpl.cpp:651)
+[2024-10-25 10:29:58] [Camera - USBCameraSource - ACAM3] [DEBUG] Cam Properties Dump:
+Name: connect_verbose, Kind: kInteger, Value: 2, Min: 0, Max: 1, Dflt: 1, Step: 1
+Name: , Kind: kNone, Value: 0, Min: 0, Max: 0, Dflt: 0, Step: 0
+Name: raw_brightness, Kind: kInteger, Value: 2, Min: -64, Max: 64, Dflt: 0, Step: 1
+Name: brightness, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: raw_contrast, Kind: kInteger, Value: 2, Min: 0, Max: 64, Dflt: 32, Step: 1
+Name: contrast, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: raw_saturation, Kind: kInteger, Value: 2, Min: 0, Max: 128, Dflt: 90, Step: 1
+Name: saturation, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 70, Step: 1
+Name: raw_hue, Kind: kInteger, Value: 2, Min: -40, Max: 40, Dflt: 0, Step: 1
+Name: hue, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: white_balance_automatic, Kind: kBoolean, Value: 1, Min: 0, Max: 1, Dflt: 1, Step: 1
+Name: gamma, Kind: kInteger, Value: 2, Min: 72, Max: 500, Dflt: 100, Step: 1
+Name: raw_gain, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 0, Step: 1
+Name: gain, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 0, Step: 1
+Name: power_line_frequency, Kind: kEnum, Value: 8, Min: 0, Max: 2, Dflt: 2, Step: 1
+Name: white_balance_temperature, Kind: kInteger, Value: 2, Min: 2800, Max: 6500, Dflt: 4600, Step: 1
+Name: raw_sharpness, Kind: kInteger, Value: 2, Min: 0, Max: 6, Dflt: 3, Step: 1
+Name: sharpness, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: backlight_compensation, Kind: kInteger, Value: 2, Min: 0, Max: 2, Dflt: 1, Step: 1
+Name: auto_exposure, Kind: kEnum, Value: 8, Min: 0, Max: 3, Dflt: 3, Step: 1
+Name: raw_exposure_time_absolute, Kind: kInteger, Value: 2, Min: 1, Max: 5000, Dflt: 157, Step: 1
+Name: exposure_time_absolute, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 3, Step: 1
+Name: exposure_dynamic_framerate, Kind: kBoolean, Value: 1, Min: 0, Max: 1, Dflt: 0, Step: 1
+
+[2024-10-25 10:29:58] [VisionModule - VisionSourceSettables - ACAM3] [INFO] Caching cscore properties
+[2024-10-25 10:29:58] [VisionModule - VisionSourceSettables - ACAM2] [INFO] Setting video mode to FPS: 15 Width: 1280 Height: 720 Pixel Format: kMJPEG
+[2024-10-25 10:29:58] [CSCore - PvCSCoreLogger] [INFO] Arducam_OV9782_USB_Camera: Connected to USB camera on /dev/v4l/by-path/platform-xhci-hcd.11.auto-usb-0:1:1.0-video-index0
+[2024-10-25 10:29:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: Arducam_OV9782_USB_Camera: getting capabilities (UsbCameraImpl.cpp:663)
+[2024-10-25 10:29:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: Arducam_OV9782_USB_Camera: caching properties (UsbCameraImpl.cpp:675)
+[2024-10-25 10:29:58] [CSCore - PvCSCoreLogger] [INFO] ACAM2: Attempting to connect to USB camera on /dev/v4l/by-path/platform-fc880000.usb-usb-0:1:1.0-video-index0
+[2024-10-25 10:29:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: opening device (UsbCameraImpl.cpp:651)
+[2024-10-25 10:29:58] [CSCore - PvCSCoreLogger] [INFO] ACAM2: Connected to USB camera on /dev/v4l/by-path/platform-fc880000.usb-usb-0:1:1.0-video-index0
+[2024-10-25 10:29:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: getting capabilities (UsbCameraImpl.cpp:663)
+[2024-10-25 10:29:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: restoring video mode (UsbCameraImpl.cpp:681)
+[2024-10-25 10:29:58] [CSCore - PvCSCoreLogger] [INFO] Arducam_OV9782_USB_Camera: set format 1 res 320x240
+[2024-10-25 10:29:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: Arducam_OV9782_USB_Camera: allocating buffers (UsbCameraImpl.cpp:701)
+[2024-10-25 10:29:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: Arducam_OV9782_USB_Camera: mapping buffers (UsbCameraImpl.cpp:715)
+[2024-10-25 10:29:58] [WebServer - DataChangeService] [DEBUG] Added subscriber - Sources: DCS_WEBSOCKET, DCS_HTTP, DCS_NETWORKTABLES, DCS_VISIONMODULE, DCS_OTHER, Destinations: DCD_ACTIVEMODULE, DCD_ACTIVEPIPELINESETTINGS, DCD_GENSETTINGS, DCD_UI, DCD_WEBSERVER, DCD_OTHER
+[2024-10-25 10:29:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: Arducam_OV9782_USB_Camera: queuing buffers (UsbCameraImpl.cpp:765)
+[2024-10-25 10:29:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1185_Input_MJPEG_Server: waiting for clients to connect (MjpegServerImpl.cpp:946)
+[2024-10-25 10:29:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: waiting for clients to connect (MjpegServerImpl.cpp:946)
+[2024-10-25 10:29:59] [VisionModule - VisionModule - Arducam_OV9782_USB_Camera] [INFO] Setting pipeline to -1
+[2024-10-25 10:29:59] [VisionModule - VisionModule - Arducam_OV9782_USB_Camera] [INFO] Pipeline name: Driver Mode
+[2024-10-25 10:29:59] [Camera - USBFrameProvider - Arducam_OV9782_USB_Camera] [INFO] Camera connected! running callback
+[2024-10-25 10:29:59] [Camera - USBCameraSource - Arducam_OV9782_USB_Camera] [DEBUG] Cam Properties Dump:
+Name: connect_verbose, Kind: kInteger, Value: 2, Min: 0, Max: 1, Dflt: 1, Step: 1
+Name: , Kind: kNone, Value: 0, Min: 0, Max: 0, Dflt: 0, Step: 0
+Name: raw_brightness, Kind: kInteger, Value: 2, Min: -64, Max: 64, Dflt: 0, Step: 1
+Name: brightness, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: raw_contrast, Kind: kInteger, Value: 2, Min: 0, Max: 64, Dflt: 32, Step: 1
+Name: contrast, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: raw_saturation, Kind: kInteger, Value: 2, Min: 0, Max: 128, Dflt: 90, Step: 1
+Name: saturation, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 70, Step: 1
+Name: raw_hue, Kind: kInteger, Value: 2, Min: -40, Max: 40, Dflt: 0, Step: 1
+Name: hue, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: white_balance_automatic, Kind: kBoolean, Value: 1, Min: 0, Max: 1, Dflt: 1, Step: 1
+Name: gamma, Kind: kInteger, Value: 2, Min: 72, Max: 500, Dflt: 100, Step: 1
+Name: raw_gain, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 0, Step: 1
+Name: gain, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 0, Step: 1
+Name: power_line_frequency, Kind: kEnum, Value: 8, Min: 0, Max: 2, Dflt: 2, Step: 1
+Name: white_balance_temperature, Kind: kInteger, Value: 2, Min: 2800, Max: 6500, Dflt: 4600, Step: 1
+Name: raw_sharpness, Kind: kInteger, Value: 2, Min: 0, Max: 6, Dflt: 3, Step: 1
+Name: sharpness, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 50, Step: 1
+Name: backlight_compensation, Kind: kInteger, Value: 2, Min: 0, Max: 2, Dflt: 1, Step: 1
+Name: auto_exposure, Kind: kEnum, Value: 8, Min: 0, Max: 3, Dflt: 3, Step: 1
+Name: raw_exposure_time_absolute, Kind: kInteger, Value: 2, Min: 1, Max: 5000, Dflt: 157, Step: 1
+Name: exposure_time_absolute, Kind: kInteger, Value: 2, Min: 0, Max: 100, Dflt: 3, Step: 1
+Name: exposure_dynamic_framerate, Kind: kBoolean, Value: 1, Min: 0, Max: 1, Dflt: 0, Step: 1
+
+[2024-10-25 10:29:59] [VisionModule - VisionSourceSettables - Arducam_OV9782_USB_Camera] [INFO] Caching cscore properties
+[2024-10-25 10:29:59] [VisionModule - VisionSourceSettables - Arducam_OV9782_USB_Camera] [DEBUG] No property image_stabilization for Arducam_OV9782_USB_Camera , skipping.
+[2024-10-25 10:29:59] [Camera - VisionSourceManager] [INFO] Finished registering loaded camera configs! Started 3 active VisionModules, with 3 disabled VisionModules
+[2024-10-25 10:29:59] [General - Main] [INFO] Starting server...
+[2024-10-25 10:29:59] [WebServer - DataChangeService] [DEBUG] Added subscriber - Sources: DCS_WEBSOCKET, DCS_HTTP, DCS_NETWORKTABLES, DCS_VISIONMODULE, DCS_OTHER, Destinations: DCD_WEBSERVER
+[2024-10-25 10:29:59] [WebServer - DataChangeService] [DEBUG] Added subscriber - Sources: DCS_WEBSOCKET, DCS_HTTP, DCS_NETWORKTABLES, DCS_VISIONMODULE, DCS_OTHER, Destinations: DCD_UI
+[2024-10-25 10:29:59] [WebServer - DataChangeService] [DEBUG] Added subscriber - Sources: DCS_WEBSOCKET, Destinations: DCD_GENSETTINGS
+[2024-10-25 10:29:59] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] No property exposure_metering_mode for ACAM3 , skipping.
+[2024-10-25 10:29:59] [CSCore - PvCSCoreLogger] [INFO] ACAM2: set format 1 res 1280x720
+[2024-10-25 10:29:59] [CSCore - PvCSCoreLogger] [INFO] ACAM2: set FPS to 15
+[2024-10-25 10:29:59] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: restoring settings (UsbCameraImpl.cpp:686)
+[2024-10-25 10:29:59] [VisionModule - VisionSourceSettables - ACAM3] [INFO] Setting video mode to FPS: 15 Width: 1280 Height: 720 Pixel Format: kMJPEG
+[2024-10-25 10:29:59] [VisionModule - VisionSourceSettables - Arducam_OV9782_USB_Camera] [DEBUG] No property scene_mode for Arducam_OV9782_USB_Camera , skipping.
+[2024-10-25 10:29:59] [VisionModule - VisionSourceSettables - Arducam_OV9782_USB_Camera] [DEBUG] No property exposure_metering_mode for Arducam_OV9782_USB_Camera , skipping.
+[2024-10-25 10:29:59] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: allocating buffers (UsbCameraImpl.cpp:701)
+[2024-10-25 10:29:59] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: mapping buffers (UsbCameraImpl.cpp:715)
+[2024-10-25 10:29:59] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM2: queuing buffers (UsbCameraImpl.cpp:765)
+[2024-10-25 10:29:59] [CSCore - PvCSCoreLogger] [INFO] ACAM3: Attempting to connect to USB camera on /dev/v4l/by-path/platform-fc800000.usb-usb-0:1:1.0-video-index0
+[2024-10-25 10:29:59] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: opening device (UsbCameraImpl.cpp:651)
+[2024-10-25 10:29:59] [CSCore - PvCSCoreLogger] [INFO] ACAM3: Connected to USB camera on /dev/v4l/by-path/platform-fc800000.usb-usb-0:1:1.0-video-index0
+[2024-10-25 10:29:59] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: getting capabilities (UsbCameraImpl.cpp:663)
+[2024-10-25 10:29:59] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: restoring video mode (UsbCameraImpl.cpp:681)
+[2024-10-25 10:29:59] [VisionModule - VisionSourceSettables - Arducam_OV9782_USB_Camera] [DEBUG] No property focus_auto for Arducam_OV9782_USB_Camera , skipping.
+[2024-10-25 10:29:59] [VisionModule - VisionSourceSettables - Arducam_OV9782_USB_Camera] [DEBUG] No property focus_absolute for Arducam_OV9782_USB_Camera , skipping.
+[2024-10-25 10:29:59] [VisionModule - VisionSourceSettables - Arducam_OV9782_USB_Camera] [INFO] Setting video mode to FPS: 30 Width: 320 Height: 240 Pixel Format: kMJPEG
+[2024-10-25 10:30:00] [CSCore - PvCSCoreLogger] [INFO] ACAM3: set format 1 res 1280x720
+[2024-10-25 10:30:00] [CSCore - PvCSCoreLogger] [INFO] ACAM3: set FPS to 15
+[2024-10-25 10:30:00] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: restoring settings (UsbCameraImpl.cpp:686)
+[2024-10-25 10:30:00] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] Failed to set video mode!
+[2024-10-25 10:30:00] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] Setting property raw_exposure_time_absolute to 5 (user requested 5.0 μs)
+[2024-10-25 10:30:00] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] Setting auto exposure to false
+[2024-10-25 10:30:00] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] No property auto_exposure_bias for ACAM2 , skipping.
+[2024-10-25 10:30:00] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] No property iso_sensitivity_auto for ACAM2 , skipping.
+[2024-10-25 10:30:00] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] No property iso_sensitivity for ACAM2 , skipping.
+[2024-10-25 10:30:00] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] Setting property raw_exposure_time_absolute to 5 (user requested 5.0 μs)
+[2024-10-25 10:30:00] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] No property gain_automatic for ACAM2 , skipping.
+[2024-10-25 10:30:00] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] Setting property white_balance_temperature to 4000 (user requested 4000 degrees)
+[2024-10-25 10:30:00] [VisionModule - VisionSourceSettables - ACAM2] [DEBUG] Setting auto white balance to false
+[2024-10-25 10:30:00] [CSCore - PvCSCoreLogger] [INFO] Arducam_OV9782_USB_Camera: set FPS to 30
+[2024-10-25 10:30:00] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: Arducam_OV9782_USB_Camera: queuing buffers (UsbCameraImpl.cpp:765)
+[2024-10-25 10:30:00] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: allocating buffers (UsbCameraImpl.cpp:701)
+[2024-10-25 10:30:00] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: mapping buffers (UsbCameraImpl.cpp:715)
+[2024-10-25 10:30:00] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 7: ACAM3: queuing buffers (UsbCameraImpl.cpp:765)
+[2024-10-25 10:30:00] [Config - ConfigManager] [DEBUG] Saving to disk...
+[2024-10-25 10:30:00] [Config - SqlConfigProvider] [DEBUG] Saving to disk
+[2024-10-25 10:30:00] [Camera - USBFrameProvider - ACAM2] [ERROR] Error grabbing image: 
+[2024-10-25 10:30:00] [Config - SqlConfigProvider] [INFO] Settings saved!
+[2024-10-25 10:30:01] [VisionModule - VisionSourceSettables - Arducam_OV9782_USB_Camera] [DEBUG] Failed to set video mode!
+[2024-10-25 10:30:01] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] Failed to set video mode!
+[2024-10-25 10:30:01] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] Setting property raw_exposure_time_absolute to 5 (user requested 5.0 μs)
+[2024-10-25 10:30:01] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] Setting auto exposure to false
+[2024-10-25 10:30:01] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] No property auto_exposure_bias for ACAM3 , skipping.
+[2024-10-25 10:30:01] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] No property iso_sensitivity_auto for ACAM3 , skipping.
+[2024-10-25 10:30:01] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] No property iso_sensitivity for ACAM3 , skipping.
+[2024-10-25 10:30:01] [VisionModule - VisionSourceSettables - Arducam_OV9782_USB_Camera] [DEBUG] Setting property raw_exposure_time_absolute to 20 (user requested 20.0 μs)
+[2024-10-25 10:30:01] [VisionModule - VisionSourceSettables - Arducam_OV9782_USB_Camera] [DEBUG] Setting auto exposure to true
+[2024-10-25 10:30:01] [VisionModule - VisionSourceSettables - Arducam_OV9782_USB_Camera] [DEBUG] No property auto_exposure_bias for Arducam_OV9782_USB_Camera , skipping.
+[2024-10-25 10:30:01] [VisionModule - VisionSourceSettables - Arducam_OV9782_USB_Camera] [DEBUG] No property iso_sensitivity_auto for Arducam_OV9782_USB_Camera , skipping.
+[2024-10-25 10:30:01] [VisionModule - VisionSourceSettables - Arducam_OV9782_USB_Camera] [DEBUG] No property iso_sensitivity for Arducam_OV9782_USB_Camera , skipping.
+[2024-10-25 10:30:01] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] Setting property raw_exposure_time_absolute to 5 (user requested 5.0 μs)
+[2024-10-25 10:30:01] [VisionModule - VisionSourceSettables - Arducam_OV9782_USB_Camera] [DEBUG] No property gain_automatic for Arducam_OV9782_USB_Camera , skipping.
+[2024-10-25 10:30:01] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] No property gain_automatic for ACAM3 , skipping.
+[2024-10-25 10:30:01] [VisionModule - VisionSourceSettables - Arducam_OV9782_USB_Camera] [DEBUG] Setting property white_balance_temperature to 4000 (user requested 4000 degrees)
+[2024-10-25 10:30:01] [VisionModule - VisionSourceSettables - Arducam_OV9782_USB_Camera] [DEBUG] Setting auto white balance to false
+[2024-10-25 10:30:01] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] Setting property white_balance_temperature to 4000 (user requested 4000 degrees)
+[2024-10-25 10:30:01] [VisionModule - VisionSourceSettables - ACAM3] [DEBUG] Setting auto white balance to false
+[2024-10-25 10:30:09] [NetworkTables - NetworkTablesManager] [INFO] NT: INFO 20: CONNECTED NT4 to 10.17.36.2 port 5810 (NetworkClient.cpp:413)
+[2024-10-25 10:30:09] [NetworkTables - NetworkTablesManager] [INFO] NT connected to 10.17.36.2:5810! (NT version 1025)
+[2024-10-25 10:30:09] [General - ScriptManager] [INFO] Queued event: kNTConnected
+[2024-10-25 10:30:09] [NetworkTables - TimeSyncManager] [DEBUG] NT (re)connected -- restarting Time Sync Client at 127.0.0.1:5810
+[2024-10-25 10:30:10] [NetworkTables - TimeSyncManager] [DEBUG] Changing TimeSyncClient server to 10.17.36.2
+[2024-10-25 10:30:53] [NetworkTables - NetworkTablesManager] [INFO] NT: INFO 20: DISCONNECTED NT4 connection: stream error: ECONNRESET (NetworkClient.cpp:468)
+[2024-10-25 10:30:53] [NetworkTables - NetworkTablesManager] [ERROR] NT lost connection to 10.17.36.2:5810! (NT version 1025). Will retry in background.
+[2024-10-25 10:31:03] [NetworkTables - NetworkTablesManager] [INFO] NT: INFO 20: CONNECTED NT4 to 10.17.36.2 port 5810 (NetworkClient.cpp:413)
+[2024-10-25 10:31:03] [NetworkTables - NetworkTablesManager] [INFO] NT connected to 10.17.36.2:5810! (NT version 1025)
+[2024-10-25 10:31:03] [General - ScriptManager] [INFO] Queued event: kNTConnected
+[2024-10-25 10:31:03] [NetworkTables - TimeSyncManager] [DEBUG] NT (re)connected -- restarting Time Sync Client at 10.17.36.2:5810
+[2024-10-25 10:32:18] [WebServer - Server] [DEBUG] Handled HTTP request of type GET from endpoint /index.html of req size -1 bytes & type null with return code 200 for host 10.17.36.200 in 15.972835 ms
+[2024-10-25 10:32:18] [WebServer - Server] [DEBUG] Handled HTTP request of type GET from endpoint / of req size -1 bytes & type null with return code 200 for host 10.17.36.200 in 56.476006 ms
+[2024-10-25 10:32:18] [WebServer - Server] [DEBUG] Handled HTTP request of type GET from endpoint /assets/index-C7-j6cdu.css of req size -1 bytes & type null with return code 200 for host 10.17.36.200 in 91.64547 ms
+[2024-10-25 10:32:18] [WebServer - Server] [DEBUG] Handled HTTP request of type GET from endpoint /assets/index-Bnr8jAW6.js of req size -1 bytes & type null with return code 200 for host 10.17.36.200 in 209.36972 ms
+[2024-10-25 10:32:18] [WebServer - DataSocketHandler] [INFO] New websocket connection from /10.17.36.200:57393
+[2024-10-25 10:32:18] [General - ShellExec] [DEBUG] Executing "nmcli -t -f GENERAL.CONNECTION,GENERAL.DEVICE,GENERAL.TYPE device show"
+[2024-10-25 10:32:19] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:32:19] [General - NetworkUtils] [DEBUG] Found network interfaces: [NMDeviceInfo [connName=static-end1, devName=end1, nmType=NMTYPE_ETHERNET]]
+[2024-10-25 10:32:19] [WebServer - Server] [DEBUG] Handled HTTP request of type GET from endpoint /assets/loading-transparent-M6bk-DXt.svg of req size -1 bytes & type null with return code 200 for host 10.17.36.200 in 1.277208 ms
+[2024-10-25 10:32:19] [WebServer - Server] [DEBUG] Handled HTTP request of type GET from endpoint /assets/logoLarge-Blny0AlQ.svg of req size -1 bytes & type null with return code 200 for host 10.17.36.200 in 8.224418 ms
+[2024-10-25 10:32:19] [WebServer - Server] [DEBUG] Handled HTTP request of type GET from endpoint /assets/prompt-latin-400-normal-CyXKtQGK.woff2 of req size -1 bytes & type null with return code 200 for host 10.17.36.200 in 4.935001 ms
+[2024-10-25 10:32:19] [WebServer - Server] [DEBUG] Handled HTTP request of type GET from endpoint /assets/materialdesignicons-webfont-Dp5v-WZN.woff2 of req size -1 bytes & type null with return code 200 for host 10.17.36.200 in 45.57963 ms
+[2024-10-25 10:32:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1182_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:32:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1182_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:32:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1182_Output_MJPEG_Server: command parameters: "" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:32:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1182_Output_MJPEG_Server: request for stream photonvision_Port_1182_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:32:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1182_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:32:20] [WebServer - Server] [DEBUG] Handled HTTP request of type GET from endpoint /favicon.ico of req size -1 bytes & type null with return code 200 for host 10.17.36.200 in 1.404667 ms
+[2024-10-25 10:32:22] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:32:22] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:32:22] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:32:22] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:32:22] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:32:22] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1182_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:33:55] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:33:55] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:33:55] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:33:55] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:33:55] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:33:55] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:33:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: error getting request string (MjpegServerImpl.cpp:803)
+[2024-10-25 10:34:16] [General - NetworkManager] [WARN] Unexpected connection  active on end1. Expected static-end1
+[2024-10-25 10:34:16] [General - NetworkManager] [INFO] Reinitializing
+[2024-10-25 10:34:16] [General - ShellExec] [DEBUG] Executing "nmcli -t -f GENERAL.CONNECTION,GENERAL.DEVICE,GENERAL.TYPE device show"
+[2024-10-25 10:34:16] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:34:16] [General - NetworkUtils] [DEBUG] Found network interfaces: [NMDeviceInfo [connName=static-end1, devName=end1, nmType=NMTYPE_ETHERNET]]
+[2024-10-25 10:34:16] [General - NetworkManager] [INFO] Setting STATIC with team 1736 on end1
+[2024-10-25 10:34:16] [General - ShellExec] [DEBUG] Executing "cat /etc/hostname | tr -d " \t\n\r""
+[2024-10-25 10:34:16] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:34:16] [General - NetworkManager] [DEBUG] Old host name: "photonvision"
+[2024-10-25 10:34:16] [General - NetworkManager] [DEBUG] New host name: "photonvision"
+[2024-10-25 10:34:16] [General - NetworkManager] [INFO] Updating the Static connection static-end1
+[2024-10-25 10:34:16] [General - ShellExec] [DEBUG] Executing "nmcli connection modify static-end1 autoconnect yes ipv4.method manual ipv6.method disabled ipv4.addresses 10.17.36.15/8 ipv4.gateway 10.17.36.1 "
+[2024-10-25 10:34:17] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:34:17] [General - NetworkManager] [INFO] Activating the Static connection static-end1
+[2024-10-25 10:34:17] [General - ShellExec] [DEBUG] Executing "nmcli connection up "static-end1""
+[2024-10-25 10:34:17] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:34:17] [WebServer - Server] [INFO] Web server going down for restart
+[2024-10-25 10:34:17] [WebServer - DataSocketHandler] [INFO] Closing websockets for user 19eb11eb-ce96-488f-a5ab-bf81e2270188
+[2024-10-25 10:34:18] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:34:19] [WebServer - DataSocketHandler] [INFO] New websocket connection from /10.17.36.200:52286
+[2024-10-25 10:34:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:34:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:34:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:34:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:34:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:35:06] [General - NetworkManager] [WARN] Unexpected connection  active on end1. Expected static-end1
+[2024-10-25 10:35:06] [General - NetworkManager] [INFO] Reinitializing
+[2024-10-25 10:35:06] [General - ShellExec] [DEBUG] Executing "nmcli -t -f GENERAL.CONNECTION,GENERAL.DEVICE,GENERAL.TYPE device show"
+[2024-10-25 10:35:06] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:35:06] [General - NetworkUtils] [DEBUG] Found network interfaces: [NMDeviceInfo [connName=static-end1, devName=end1, nmType=NMTYPE_ETHERNET]]
+[2024-10-25 10:35:06] [General - NetworkManager] [INFO] Setting STATIC with team 1736 on end1
+[2024-10-25 10:35:06] [General - ShellExec] [DEBUG] Executing "cat /etc/hostname | tr -d " \t\n\r""
+[2024-10-25 10:35:06] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:35:06] [General - NetworkManager] [DEBUG] Old host name: "photonvision"
+[2024-10-25 10:35:06] [General - NetworkManager] [DEBUG] New host name: "photonvision"
+[2024-10-25 10:35:06] [General - NetworkManager] [INFO] Updating the Static connection static-end1
+[2024-10-25 10:35:06] [General - ShellExec] [DEBUG] Executing "nmcli connection modify static-end1 autoconnect yes ipv4.method manual ipv6.method disabled ipv4.addresses 10.17.36.15/8 ipv4.gateway 10.17.36.1 "
+[2024-10-25 10:35:07] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:35:07] [General - NetworkManager] [INFO] Activating the Static connection static-end1
+[2024-10-25 10:35:07] [General - ShellExec] [DEBUG] Executing "nmcli connection up "static-end1""
+[2024-10-25 10:35:07] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:35:07] [WebServer - Server] [INFO] Web server going down for restart
+[2024-10-25 10:35:07] [WebServer - DataSocketHandler] [INFO] Closing websockets for user 72dfd240-b57e-458d-a7f7-c99be585464e
+[2024-10-25 10:35:36] [General - NetworkManager] [WARN] Unexpected connection  active on end1. Expected static-end1
+[2024-10-25 10:35:36] [General - NetworkManager] [INFO] Reinitializing
+[2024-10-25 10:35:36] [General - ShellExec] [DEBUG] Executing "nmcli -t -f GENERAL.CONNECTION,GENERAL.DEVICE,GENERAL.TYPE device show"
+[2024-10-25 10:35:36] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:35:36] [General - NetworkUtils] [DEBUG] Found network interfaces: [NMDeviceInfo [connName=static-end1, devName=end1, nmType=NMTYPE_ETHERNET]]
+[2024-10-25 10:35:36] [General - NetworkManager] [INFO] Setting STATIC with team 1736 on end1
+[2024-10-25 10:35:36] [General - ShellExec] [DEBUG] Executing "cat /etc/hostname | tr -d " \t\n\r""
+[2024-10-25 10:35:36] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:35:36] [General - NetworkManager] [DEBUG] Old host name: "photonvision"
+[2024-10-25 10:35:36] [General - NetworkManager] [DEBUG] New host name: "photonvision"
+[2024-10-25 10:35:36] [General - NetworkManager] [INFO] Updating the Static connection static-end1
+[2024-10-25 10:35:36] [General - ShellExec] [DEBUG] Executing "nmcli connection modify static-end1 autoconnect yes ipv4.method manual ipv6.method disabled ipv4.addresses 10.17.36.15/8 ipv4.gateway 10.17.36.1 "
+[2024-10-25 10:35:37] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:35:37] [General - NetworkManager] [INFO] Activating the Static connection static-end1
+[2024-10-25 10:35:37] [General - ShellExec] [DEBUG] Executing "nmcli connection up "static-end1""
+[2024-10-25 10:35:37] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:35:37] [WebServer - Server] [INFO] Web server going down for restart
+[2024-10-25 10:36:26] [General - NetworkManager] [WARN] Unexpected connection  active on end1. Expected static-end1
+[2024-10-25 10:36:26] [General - NetworkManager] [INFO] Reinitializing
+[2024-10-25 10:36:26] [General - ShellExec] [DEBUG] Executing "nmcli -t -f GENERAL.CONNECTION,GENERAL.DEVICE,GENERAL.TYPE device show"
+[2024-10-25 10:36:26] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:36:26] [General - NetworkUtils] [DEBUG] Found network interfaces: [NMDeviceInfo [connName=static-end1, devName=end1, nmType=NMTYPE_ETHERNET]]
+[2024-10-25 10:36:26] [General - NetworkManager] [INFO] Setting STATIC with team 1736 on end1
+[2024-10-25 10:36:26] [General - ShellExec] [DEBUG] Executing "cat /etc/hostname | tr -d " \t\n\r""
+[2024-10-25 10:36:26] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:36:26] [General - NetworkManager] [DEBUG] Old host name: "photonvision"
+[2024-10-25 10:36:26] [General - NetworkManager] [DEBUG] New host name: "photonvision"
+[2024-10-25 10:36:26] [General - NetworkManager] [INFO] Updating the Static connection static-end1
+[2024-10-25 10:36:26] [General - ShellExec] [DEBUG] Executing "nmcli connection modify static-end1 autoconnect yes ipv4.method manual ipv6.method disabled ipv4.addresses 10.17.36.15/8 ipv4.gateway 10.17.36.1 "
+[2024-10-25 10:36:27] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:36:27] [General - NetworkManager] [INFO] Activating the Static connection static-end1
+[2024-10-25 10:36:27] [General - ShellExec] [DEBUG] Executing "nmcli connection up "static-end1""
+[2024-10-25 10:36:27] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:36:27] [WebServer - Server] [INFO] Web server going down for restart
+[2024-10-25 10:37:23] [NetworkTables - NetworkTablesManager] [INFO] NT: INFO 20: DISCONNECTED NT4 connection: stream error: ECONNRESET (NetworkClient.cpp:468)
+[2024-10-25 10:37:23] [NetworkTables - NetworkTablesManager] [ERROR] NT lost connection to 10.17.36.2:5810! (NT version 1025). Will retry in background.
+[2024-10-25 10:37:32] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:37:32] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:37:32] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:37:32] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:37:32] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:37:33] [NetworkTables - NetworkTablesManager] [INFO] NT: INFO 20: CONNECTED NT4 to 10.17.36.2 port 5810 (NetworkClient.cpp:413)
+[2024-10-25 10:37:33] [NetworkTables - NetworkTablesManager] [INFO] NT connected to 10.17.36.2:5810! (NT version 1025)
+[2024-10-25 10:37:33] [General - ScriptManager] [INFO] Queued event: kNTConnected
+[2024-10-25 10:37:33] [NetworkTables - TimeSyncManager] [DEBUG] NT (re)connected -- restarting Time Sync Client at 10.17.36.2:5810
+[2024-10-25 10:37:36] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:37:39] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:37:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:37:43] [WebServer - DataSocketHandler] [INFO] New websocket connection from /10.17.36.200:49421
+[2024-10-25 10:37:43] [General - ShellExec] [DEBUG] Executing "nmcli -t -f GENERAL.CONNECTION,GENERAL.DEVICE,GENERAL.TYPE device show"
+[2024-10-25 10:37:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:37:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:37:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:37:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:37:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:37:43] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:37:43] [General - NetworkUtils] [DEBUG] Found network interfaces: [NMDeviceInfo [connName=static-end1, devName=end1, nmType=NMTYPE_ETHERNET]]
+[2024-10-25 10:38:31] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:38:31] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:38:31] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:38:31] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:38:31] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:38:31] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:38:38] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:38:38] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:38:38] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:38:38] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:38:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:38:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:38:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:38:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:38:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:38:47] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:38:54] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:38:55] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:08] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:08] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265285693 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:08] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265285693" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:08] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:08] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:08] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:08] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265317692 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:08] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265317692" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:08] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:08] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265318696 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265318696" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265319697 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265319697" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:11] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:11] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:11] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265320692 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:11] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265320692" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:11] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:11] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:11] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:12] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:12] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265321697 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:12] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265321697" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:12] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:12] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:12] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:14] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:14] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265322696 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:14] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265322696" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:14] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:14] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:14] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:15] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:15] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265323693 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:15] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265323693" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:15] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:15] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:16] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:16] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:16] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265324695 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:16] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265324695" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:16] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:16] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265325693 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265325693" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265326693 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265326693" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:18] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265327694 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265327694" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265328693 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265328693" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:20] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:21] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:21] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265330169 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:21] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265330169" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:21] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:21] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:21] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:22] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:22] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265331163 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:22] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265331163" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:22] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:22] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:22] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:23] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:23] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265332165 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:23] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265332165" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:23] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:23] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:23] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:24] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:24] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265333170 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:24] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265333170" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:24] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:24] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:24] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:25] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:25] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265334169 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:25] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265334169" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:25] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:25] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:25] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:26] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:26] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265335165 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:26] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265335165" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:26] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:26] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:26] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:27] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:27] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265336167 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:27] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265336167" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:27] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:27] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:27] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:28] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:28] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265337161 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:28] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265337161" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:28] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:28] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:28] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:29] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:29] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265338163 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:29] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265338163" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:29] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:29] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:29] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:30] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:30] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265339163 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:30] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265339163" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:30] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:30] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:31] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:31] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:31] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265340162 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:31] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265340162" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:31] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:31] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:32] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:32] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:32] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265341163 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:32] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265341163" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:32] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:32] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:33] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:33] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:33] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265342165 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:33] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265342165" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:33] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:33] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:34] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:34] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:34] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265343212 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:34] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265343212" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:34] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:34] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:35] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:35] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:35] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265344162 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:35] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265344162" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:35] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:35] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:35] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:36] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:36] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265345162 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:36] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265345162" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:36] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:36] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:37] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:37] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:37] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265346180 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:37] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265346180" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:37] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:37] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:38] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:38] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:38] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265347165 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:38] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265347165" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:38] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:38] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:39] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:39] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:39] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265348166 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:39] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265348166" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:39] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:39] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:40] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:41] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:41] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265349163 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:41] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265349163" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:41] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:41] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:41] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:41] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:41] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265350163 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:41] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265350163" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:41] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:41] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265351162 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265351162" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:42] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265352164 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265352164" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:43] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:44] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:45] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:45] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265353167 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:45] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265353167" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:45] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:45] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:45] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:45] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:45] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:45] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:45] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:45] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:45] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:45] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:46] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:48] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265357169 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:48] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265357169" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:48] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:48] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:48] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:49] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:49] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265358167 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:49] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265358167" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:49] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:49] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:50] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:50] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:50] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265359166 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:50] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265359166" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:50] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:50] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:51] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:51] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:51] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265360163 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:51] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265360163" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:51] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:51] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:52] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:52] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:52] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265361170 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:52] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265361170" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:52] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:52] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:53] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:53] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:53] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265362168 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:53] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265362168" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:53] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:53] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:54] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:54] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:54] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265363167 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:54] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265363167" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:54] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:54] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:55] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:55] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:55] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265364163 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:55] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265364163" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:55] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:55] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:56] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:56] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:56] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265365164 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:56] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265365164" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:56] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:56] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:57] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:57] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:57] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265366177 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:57] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265366177" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:57] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:57] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265367174 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265367174" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:58] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:41:59] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:41:59] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:41:59] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265368174 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:41:59] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265368174" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:41:59] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:41:59] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:42:00] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:42:00] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:42:00] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265369173 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:42:00] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265369173" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:42:00] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:42:00] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:42:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:42:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:42:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:42:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:42:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:42:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:42:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:42:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:42:03] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265372167 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:42:03] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265372167" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:42:03] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:42:03] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:42:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:42:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:42:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265373169 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:42:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265373169" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:42:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:42:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:42:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:42:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:42:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265374168 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:42:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265374168" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:42:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:42:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:42:06] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:42:07] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:42:07] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265375168 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:42:07] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265375168" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:42:07] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:42:07] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:42:08] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:42:08] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:42:08] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265376164 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:42:08] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265376164" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:42:08] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:42:08] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:42:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:42:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:42:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265377163 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:42:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265377163" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:42:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:42:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:42:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:42:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:42:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265378162 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:42:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265378162" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:42:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:42:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:42:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:42:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:42:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265379176 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:42:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265379176" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:42:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:42:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:42:11] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:42:11] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:42:11] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:42:11] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:42:11] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:42:11] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:42:11] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:42:11] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:42:12] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265381176 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:42:12] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265381176" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:42:12] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:42:12] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:42:12] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:42:13] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:42:13] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265382174 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:42:13] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265382174" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:42:13] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:42:13] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:42:14] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:42:14] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:42:14] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265383174 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:42:14] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265383174" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:42:14] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:42:14] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:42:14] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:42:15] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:42:15] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265384173 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:42:15] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265384173" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:42:15] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:42:15] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:42:15] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:42:16] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:42:16] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265385172 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:42:16] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265385172" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:42:16] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:42:16] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:42:16] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:42:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:42:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265386170 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:42:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265386170" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:42:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:42:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:42:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:42:18] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:42:18] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265387170 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:42:18] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265387170" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:42:18] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:42:18] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:42:18] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:42:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:42:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265388170 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:42:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265388170" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:42:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:42:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:42:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:42:20] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:42:20] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265389168 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:42:20] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265389168" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:42:20] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:42:20] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:42:21] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:42:58] [NetworkTables - NetworkTablesManager] [INFO] NT: INFO 20: DISCONNECTED NT4 connection: stream error: ECONNRESET (NetworkClient.cpp:468)
+[2024-10-25 10:42:58] [NetworkTables - NetworkTablesManager] [ERROR] NT lost connection to 10.17.36.2:5810! (NT version 1025). Will retry in background.
+[2024-10-25 10:43:07] [NetworkTables - NetworkTablesManager] [INFO] NT: INFO 20: CONNECTED NT4 to 10.17.36.2 port 5810 (NetworkClient.cpp:413)
+[2024-10-25 10:43:07] [NetworkTables - NetworkTablesManager] [INFO] NT connected to 10.17.36.2:5810! (NT version 1025)
+[2024-10-25 10:43:07] [General - ScriptManager] [INFO] Queued event: kNTConnected
+[2024-10-25 10:43:07] [NetworkTables - TimeSyncManager] [DEBUG] NT (re)connected -- restarting Time Sync Client at 10.17.36.2:5810
+[2024-10-25 10:43:11] [General - NetworkManager] [WARN] Unexpected connection  active on end1. Expected static-end1
+[2024-10-25 10:43:11] [General - NetworkManager] [INFO] Reinitializing
+[2024-10-25 10:43:11] [General - ShellExec] [DEBUG] Executing "nmcli -t -f GENERAL.CONNECTION,GENERAL.DEVICE,GENERAL.TYPE device show"
+[2024-10-25 10:43:11] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:43:11] [General - NetworkUtils] [DEBUG] Found network interfaces: [NMDeviceInfo [connName=static-end1, devName=end1, nmType=NMTYPE_ETHERNET]]
+[2024-10-25 10:43:11] [General - NetworkManager] [INFO] Setting STATIC with team 1736 on end1
+[2024-10-25 10:43:11] [General - ShellExec] [DEBUG] Executing "cat /etc/hostname | tr -d " \t\n\r""
+[2024-10-25 10:43:11] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:43:11] [General - NetworkManager] [DEBUG] Old host name: "photonvision"
+[2024-10-25 10:43:11] [General - NetworkManager] [DEBUG] New host name: "photonvision"
+[2024-10-25 10:43:11] [General - NetworkManager] [INFO] Updating the Static connection static-end1
+[2024-10-25 10:43:11] [General - ShellExec] [DEBUG] Executing "nmcli connection modify static-end1 autoconnect yes ipv4.method manual ipv6.method disabled ipv4.addresses 10.17.36.15/8 ipv4.gateway 10.17.36.1 "
+[2024-10-25 10:43:12] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:43:12] [General - NetworkManager] [INFO] Activating the Static connection static-end1
+[2024-10-25 10:43:12] [General - ShellExec] [DEBUG] Executing "nmcli connection up "static-end1""
+[2024-10-25 10:43:12] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:43:12] [WebServer - Server] [INFO] Web server going down for restart
+[2024-10-25 10:43:12] [WebServer - DataSocketHandler] [INFO] Closing websockets for user 716d0b6a-c1d2-4ecc-9de4-6a16c073c53f
+[2024-10-25 10:43:15] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:43:15] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265444169 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:43:15] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265444169" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:43:15] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:43:15] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:43:15] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:43:50] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:43:50] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265478967 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:43:50] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265478967" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:43:50] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:43:50] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:43:50] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:43:51] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:43:51] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265479967 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:43:51] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265479967" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:43:51] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:43:51] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:43:51] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:43:52] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:43:52] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265480969 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:43:52] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265480969" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:43:52] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:43:52] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:43:52] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:43:52] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:43:56] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:43:57] [WebServer - DataSocketHandler] [INFO] New websocket connection from /10.17.36.200:59743
+[2024-10-25 10:43:57] [General - ShellExec] [DEBUG] Executing "nmcli -t -f GENERAL.CONNECTION,GENERAL.DEVICE,GENERAL.TYPE device show"
+[2024-10-25 10:43:57] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:43:57] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:43:57] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:43:57] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:43:57] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:43:57] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:43:57] [General - NetworkUtils] [DEBUG] Found network interfaces: [NMDeviceInfo [connName=static-end1, devName=end1, nmType=NMTYPE_ETHERNET]]
+[2024-10-25 10:44:45] [NetworkTables - NetworkTablesManager] [INFO] NT: INFO 20: DISCONNECTED NT4 connection: connection timed out (NetworkClient.cpp:468)
+[2024-10-25 10:44:45] [NetworkTables - NetworkTablesManager] [ERROR] NT lost connection to 10.17.36.2:5810! (NT version 1025). Will retry in background.
+[2024-10-25 10:45:16] [General - NetworkManager] [WARN] Unexpected connection  active on end1. Expected static-end1
+[2024-10-25 10:45:16] [General - NetworkManager] [INFO] Reinitializing
+[2024-10-25 10:45:16] [General - ShellExec] [DEBUG] Executing "nmcli -t -f GENERAL.CONNECTION,GENERAL.DEVICE,GENERAL.TYPE device show"
+[2024-10-25 10:45:16] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:45:16] [General - NetworkUtils] [DEBUG] Found network interfaces: [NMDeviceInfo [connName=static-end1, devName=end1, nmType=NMTYPE_ETHERNET]]
+[2024-10-25 10:45:16] [General - NetworkManager] [INFO] Setting STATIC with team 1736 on end1
+[2024-10-25 10:45:16] [General - ShellExec] [DEBUG] Executing "cat /etc/hostname | tr -d " \t\n\r""
+[2024-10-25 10:45:16] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:45:16] [General - NetworkManager] [DEBUG] Old host name: "photonvision"
+[2024-10-25 10:45:16] [General - NetworkManager] [DEBUG] New host name: "photonvision"
+[2024-10-25 10:45:16] [General - NetworkManager] [INFO] Updating the Static connection static-end1
+[2024-10-25 10:45:16] [General - ShellExec] [DEBUG] Executing "nmcli connection modify static-end1 autoconnect yes ipv4.method manual ipv6.method disabled ipv4.addresses 10.17.36.15/8 ipv4.gateway 10.17.36.1 "
+[2024-10-25 10:45:17] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:45:17] [General - NetworkManager] [INFO] Activating the Static connection static-end1
+[2024-10-25 10:45:17] [General - ShellExec] [DEBUG] Executing "nmcli connection up "static-end1""
+[2024-10-25 10:45:17] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:45:17] [WebServer - Server] [INFO] Web server going down for restart
+[2024-10-25 10:45:17] [WebServer - DataSocketHandler] [INFO] Closing websockets for user 05b78279-96c8-4a34-8c72-b8885459ad40
+[2024-10-25 10:45:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:45:19] [WebServer - DataSocketHandler] [INFO] New websocket connection from /10.17.36.200:60052
+[2024-10-25 10:45:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:45:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:45:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:45:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:45:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:45:34] [NetworkTables - NetworkTablesManager] [INFO] NT: INFO 20: CONNECTED NT4 to 10.17.36.2 port 5810 (NetworkClient.cpp:413)
+[2024-10-25 10:45:34] [NetworkTables - NetworkTablesManager] [INFO] NT connected to 10.17.36.2:5810! (NT version 1025)
+[2024-10-25 10:45:34] [General - ScriptManager] [INFO] Queued event: kNTConnected
+[2024-10-25 10:45:34] [NetworkTables - TimeSyncManager] [DEBUG] NT (re)connected -- restarting Time Sync Client at 10.17.36.2:5810
+[2024-10-25 10:45:56] [General - NetworkManager] [WARN] Unexpected connection  active on end1. Expected static-end1
+[2024-10-25 10:45:56] [General - NetworkManager] [INFO] Reinitializing
+[2024-10-25 10:45:56] [General - ShellExec] [DEBUG] Executing "nmcli -t -f GENERAL.CONNECTION,GENERAL.DEVICE,GENERAL.TYPE device show"
+[2024-10-25 10:45:56] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:45:56] [General - NetworkUtils] [DEBUG] Found network interfaces: [NMDeviceInfo [connName=static-end1, devName=end1, nmType=NMTYPE_ETHERNET]]
+[2024-10-25 10:45:56] [General - NetworkManager] [INFO] Setting STATIC with team 1736 on end1
+[2024-10-25 10:45:56] [General - ShellExec] [DEBUG] Executing "cat /etc/hostname | tr -d " \t\n\r""
+[2024-10-25 10:45:56] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:45:56] [General - NetworkManager] [DEBUG] Old host name: ""
+[2024-10-25 10:45:56] [General - NetworkManager] [DEBUG] New host name: "photonvision"
+[2024-10-25 10:45:56] [General - ShellExec] [DEBUG] Executing "echo photonvision > /etc/hostname"
+[2024-10-25 10:45:56] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:45:56] [General - ShellExec] [DEBUG] Executing "hostnamectl set-hostname photonvision"
+[2024-10-25 10:45:56] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:45:56] [General - ShellExec] [DEBUG] Executing "sed -i "s/127.0.1.1.*/127.0.1.1\tphotonvision/g" /etc/hosts"
+[2024-10-25 10:45:56] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:45:56] [General - ShellExec] [DEBUG] Executing "systemctl restart avahi-daemon.service"
+[2024-10-25 10:45:56] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:45:56] [General - NetworkManager] [INFO] Set hostname to photonvision
+[2024-10-25 10:45:56] [General - NetworkManager] [INFO] Updating the Static connection static-end1
+[2024-10-25 10:45:56] [General - ShellExec] [DEBUG] Executing "nmcli connection modify static-end1 autoconnect yes ipv4.method manual ipv6.method disabled ipv4.addresses 10.17.36.15/8 ipv4.gateway 10.17.36.1 "
+[2024-10-25 10:45:57] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:45:57] [General - NetworkManager] [INFO] Activating the Static connection static-end1
+[2024-10-25 10:45:57] [General - ShellExec] [DEBUG] Executing "nmcli connection up "static-end1""
+[2024-10-25 10:45:57] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:45:57] [WebServer - Server] [INFO] Web server going down for restart
+[2024-10-25 10:45:57] [WebServer - DataSocketHandler] [INFO] Closing websockets for user 40a5fc63-a530-4f94-a28f-f6694ce9661c
+[2024-10-25 10:45:57] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:45:59] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:45:59] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:45:59] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:45:59] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:45:59] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:45:59] [WebServer - DataSocketHandler] [INFO] New websocket connection from /10.17.36.200:60089
+[2024-10-25 10:45:59] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:45:59] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:45:59] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:45:59] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:45:59] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:00] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:00] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265609030 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:00] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265609030" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:00] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:00] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:00] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265610029 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265610029" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:01] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:02] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:02] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265611034 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:02] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265611034" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:02] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:02] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:02] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:03] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:03] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265612036 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:03] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265612036" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:03] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:03] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265613043 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265613043" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:04] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265614031 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265614031" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:05] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:06] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:06] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265615033 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:06] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265615033" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:06] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:06] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:06] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:07] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:07] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265616030 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:07] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265616030" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:07] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:07] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:07] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:08] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:08] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265617031 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:08] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265617031" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:08] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:08] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:08] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265618031 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265618031" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:09] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265619029 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265619029" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:10] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:11] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:11] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265620030 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:11] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265620030" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:11] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:11] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:11] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:12] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:12] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265621032 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:12] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265621032" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:12] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:12] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:12] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:13] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:13] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265622029 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:13] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265622029" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:13] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:13] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:13] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:14] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:14] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265623165 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:14] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265623165" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:14] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:14] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:14] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:15] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:15] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265624172 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:15] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265624172" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:15] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:15] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:15] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:16] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:16] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265625164 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:16] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265625164" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:16] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:16] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:16] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265626164 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265626164" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:17] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:18] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:18] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:18] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265627166 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:18] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265627166" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:18] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:18] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265628166 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265628166" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:19] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:20] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:20] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265629171 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:20] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265629171" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:20] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:20] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:21] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:21] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:21] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265630168 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:21] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265630168" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:21] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:21] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:21] [VisionModule - VisionSourceSettables - Arducam_OV9782_USB_Camera] [DEBUG] Setting auto white balance to true
+[2024-10-25 10:46:21] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:22] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:22] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265631166 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:22] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265631166" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:22] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:22] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:23] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:23] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:23] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265632164 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:23] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265632164" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:23] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:23] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:23] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:23] [Config - ConfigManager] [DEBUG] Saving to disk...
+[2024-10-25 10:46:23] [Config - SqlConfigProvider] [DEBUG] Saving to disk
+[2024-10-25 10:46:23] [Config - SqlConfigProvider] [INFO] Settings saved!
+[2024-10-25 10:46:24] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:24] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265633169 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:24] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265633169" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:24] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:24] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:24] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:25] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:25] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265634162 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:25] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265634162" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:25] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:25] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:25] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:26] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:26] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265635041 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:26] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265635041" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:26] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:26] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:27] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:27] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:27] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265636033 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:27] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265636033" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:27] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:27] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:28] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:28] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:28] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:28] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:28] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:28] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:28] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:28] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:29] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265638562 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:29] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265638562" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:29] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:29] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:30] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:30] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:30] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265639565 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:30] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265639565" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:30] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:30] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:31] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:31] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:31] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265640564 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:31] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265640564" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:31] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:31] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:32] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:32] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:32] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265641566 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:32] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265641566" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:32] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:32] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:32] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:33] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:33] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265642561 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:33] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265642561" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:33] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:33] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:33] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:35] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:35] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265644164 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:35] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265644164" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:35] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:35] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:35] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: leaving HTTP client thread (MjpegServerImpl.cpp:919)
+[2024-10-25 10:46:37] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: client connection from 10.17.36.200 (MjpegServerImpl.cpp:957)
+[2024-10-25 10:46:37] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: HTTP request: 'GET /stream.mjpg?t=1742265645171 HTTP/1.1
+'
+ (MjpegServerImpl.cpp:811)
+[2024-10-25 10:46:37] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: command parameters: "t=1742265645171" (MjpegServerImpl.cpp:854)
+[2024-10-25 10:46:37] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: request for stream photonvision_Port_1186_Output_MJPEG_Server (MjpegServerImpl.cpp:872)
+[2024-10-25 10:46:37] [CSCore - PvCSCoreLogger] [DEBUG] CS: DEBUG 10: serve_photonvision_Port_1186_Output_MJPEG_Server: Headers send, sending stream now (MjpegServerImpl.cpp:681)
+[2024-10-25 10:46:41] [General - NetworkManager] [WARN] Unexpected connection  active on end1. Expected static-end1
+[2024-10-25 10:46:41] [General - NetworkManager] [INFO] Reinitializing
+[2024-10-25 10:46:41] [General - ShellExec] [DEBUG] Executing "nmcli -t -f GENERAL.CONNECTION,GENERAL.DEVICE,GENERAL.TYPE device show"
+[2024-10-25 10:46:41] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:46:41] [General - NetworkUtils] [DEBUG] Found network interfaces: [NMDeviceInfo [connName=static-end1, devName=end1, nmType=NMTYPE_ETHERNET]]
+[2024-10-25 10:46:41] [General - NetworkManager] [INFO] Setting STATIC with team 1736 on end1
+[2024-10-25 10:46:41] [General - ShellExec] [DEBUG] Executing "cat /etc/hostname | tr -d " \t\n\r""
+[2024-10-25 10:46:41] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:46:41] [General - NetworkManager] [DEBUG] Old host name: ""
+[2024-10-25 10:46:41] [General - NetworkManager] [DEBUG] New host name: "photonvision"
+[2024-10-25 10:46:41] [General - ShellExec] [DEBUG] Executing "echo photonvision > /etc/hostname"
+[2024-10-25 10:46:41] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:46:41] [General - ShellExec] [DEBUG] Executing "hostnamectl set-hostname photonvision"
+[2024-10-25 10:46:41] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:46:41] [General - ShellExec] [DEBUG] Executing "sed -i "s/127.0.1.1.*/127.0.1.1\tphotonvision/g" /etc/hosts"
+[2024-10-25 10:46:41] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:46:41] [General - ShellExec] [DEBUG] Executing "systemctl restart avahi-daemon.service"
+[2024-10-25 10:46:41] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:46:41] [General - NetworkManager] [INFO] Set hostname to photonvision
+[2024-10-25 10:46:41] [General - NetworkManager] [INFO] Updating the Static connection static-end1
+[2024-10-25 10:46:41] [General - ShellExec] [DEBUG] Executing "nmcli connection modify static-end1 autoconnect yes ipv4.method manual ipv6.method disabled ipv4.addresses 10.17.36.15/8 ipv4.gateway 10.17.36.1 "
+[2024-10-25 10:46:42] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:46:42] [General - NetworkManager] [INFO] Activating the Static connection static-end1
+[2024-10-25 10:46:42] [General - ShellExec] [DEBUG] Executing "nmcli connection up "static-end1""
+[2024-10-25 10:46:42] [General - ShellExec] [DEBUG] Got exit code 0
+[2024-10-25 10:46:42] [WebServer - Server] [INFO] Web server going down for restart
+[2024-10-25 10:46:42] [WebServer - DataSocketHandler] [INFO] Closing websockets for user 54f22f36-efcf-4846-a16a-1a63ace3ff5f
